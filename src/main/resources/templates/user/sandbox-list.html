@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <!--begin::Head-->
+
+  <head>
+    <base href="../../" />
+    <meta charset="utf-8" />
+    <!--token, header-->
+    <meta name="_csrf" th:content="${_csrf.token}" />
+    <meta name="_csrf_header" th:content="${_csrf.headerName}" />
+    <title>MEGAZONE CLOUD</title>
+    <meta name="description" content="Aside light theme example" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="canonical" href="https://keenthemes.com/metronic" />
+    <!--begin::Fonts-->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
+    />
+    <!--end::Fonts-->
+    <!--begin::Page Vendors Styles(used by this page)-->
+    <link
+      href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!--end::Page Vendors Styles-->
+    <!--begin::Global Theme Styles(used by all pages)-->
+    <link
+      href="assets/plugins/global/plugins.bundle.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="assets/plugins/custom/prismjs/prismjs.bundle.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <!--end::Global Theme Styles-->
+    <!--begin::Layout Themes(used by all pages)-->
+    <link
+      href="assets/css/themes/layout/header/base/light.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="assets/css/themes/layout/header/menu/light.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="assets/css/themes/layout/brand/light.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="assets/css/themes/layout/aside/light.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!--end::Layout Themes-->
+    <link
+      rel="icon"
+      href="https://imgnew.megazone.com/2019/08/favicon-16.png"
+      type="image/png"
+      sizes="16x16"
+    />
+    <link
+      rel="icon"
+      href="https://imgnew.megazone.com/2019/08/favicon-32.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://imgnew.megazone.com/2019/08/favicon-60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="https://imgnew.megazone.com/2019/08/favicon-76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="https://imgnew.megazone.com/2019/08/favicon-120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="https://imgnew.megazone.com/2019/08/favicon-152.png"
+    />
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+
+  <body
+    id="kt_body"
+    class="
+      header-fixed header-mobile-fixed
+      subheader-enabled subheader-fixed
+      aside-enabled aside-fixed aside-minimize-hoverable
+      page-loading
+    "
+  >
+    <!--begin::Main-->
+    <!--begin::Header Mobile-->
+    <div
+      id="kt_header_mobile"
+      class="header-mobile align-items-center header-mobile-fixed"
+    >
+      <!--begin::Logo-->
+      <a href="#">
+        <h3>샌드박스 목록</h3>
+        <img alt="Logo" src="assets/media/logos/logo-dark.png" />
+      </a>
+      <!--end::Logo-->
+      <!--begin::Toolbar-->
+      <div class="d-flex align-items-center">
+        <!--begin::Aside Mobile Toggle-->
+        <button
+          class="btn p-0 burger-icon burger-icon-left"
+          id="kt_aside_mobile_toggle"
+        >
+          <span></span>
+        </button>
+        <!--end::Aside Mobile Toggle-->
+        <!--begin::Header Menu Mobile Toggle-->
+        <button class="btn p-0 burger-icon ml-4" id="kt_header_mobile_toggle">
+          <span></span>
+        </button>
+        <!--end::Header Menu Mobile Toggle-->
+        <!--begin::Topbar Mobile Toggle-->
+        <button
+          class="btn btn-hover-text-primary p-0 ml-2"
+          id="kt_header_mobile_topbar_toggle"
+        >
+          <span class="svg-icon svg-icon-xl">
+            <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="24px"
+              height="24px"
+              viewBox="0 0 24 24"
+              version="1.1"
+            >
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <polygon points="0 0 24 0 24 24 0 24" />
+                <path
+                  d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+                  fill="#000000"
+                  fill-rule="nonzero"
+                  opacity="0.3"
+                />
+                <path
+                  d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
+                  fill="#000000"
+                  fill-rule="nonzero"
+                />
+              </g>
+            </svg>
+            <!--end::Svg Icon-->
+          </span>
+        </button>
+        <!--end::Topbar Mobile Toggle-->
+      </div>
+      <!--end::Toolbar-->
+    </div>
+    <!--end::Header Mobile-->
+
+    <div class="d-flex flex-column flex-root">
+      <!--begin::Page-->
+      <div class="d-flex flex-row flex-column-fluid page">
+        <!--begin::Aside-->
+        <div th:replace="fragments/user/nav-left :: navLeft"></div>
+        <!--end::Aside-->
+        <!--begin::Wrapper-->
+        <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+          <!--begin::Header-->
+          <div th:replace="fragments/user/header :: navHeader"></div>
+          <!--end::Header-->
+          <!--begin::Content-->
+          <div
+            class="content d-flex flex-column flex-column-fluid"
+            id="kt_content"
+          >
+            <!--begin::Entry-->
+            <div class="d-flex flex-column-fluid">
+              <!--begin::Container-->
+              <div class="container">
+                <!--begin::Card-->
+                <div class="card card-custom">
+                  <div class="card-header flex-wrap border-0 pt-6 pb-0">
+                    <div class="card-title">
+                      <h3>샌드박스 목록</h3>
+                    </div>
+                    <div class="card-toolbar">
+                      <button
+                        type="button"
+                        class="
+                          btn btn-success
+                          font-weight-bold
+                          mr-2
+                          sync-sandbox-instance
+                        "
+                        th:onclick="|syncInstance();|"
+                      >
+                        <i class="fas fa-sync-alt"></i> 동기화
+                      </button>
+
+                      <a
+                        href="/sandbox/form/create"
+                        class="btn btn-primary font-weight-bolder"
+                      >
+                        <span class="svg-icon svg-icon-md">
+                          <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            width="24px"
+                            height="24px"
+                            viewBox="0 0 24 24"
+                            version="1.1"
+                          >
+                            <g
+                              stroke="none"
+                              stroke-width="1"
+                              fill="none"
+                              fill-rule="evenodd"
+                            >
+                              <rect x="0" y="0" width="24" height="24" />
+                              <circle fill="#000000" cx="9" cy="15" r="6" />
+                              <path
+                                d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z"
+                                fill="#000000"
+                                opacity="0.3"
+                              />
+                            </g>
+                          </svg>
+                          <!--end::Svg Icon--> </span
+                        >샌드박스 신청</a
+                      >
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <!--begin: Search Form-->
+                    <!--begin::Search Form-->
+                    <div class="mb-7">
+                      <div class="row align-items-center">
+                        <div class="col-lg-12">
+                          <div class="row align-items-center">
+                            <div class="col-lg-4 my-2 my-md-0">
+                              <div class="input-icon">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="Search..."
+                                  id="kt_datatable_search_query"
+                                />
+                                <span>
+                                  <i class="flaticon2-search-1 text-muted"></i>
+                                </span>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 my-2 my-md-0">
+                              <div class="d-flex align-items-center">
+                                <label class="mr-3 mb-0 d-none d-md-block"
+                                  >상태 :</label
+                                >
+                                <select
+                                  class="form-control"
+                                  id="kt_datatable_search_status"
+                                >
+                                  <option value="">All</option>
+                                  <option value="ACTIVE">ACTIVE</option>
+                                  <option value="INACTIVE">INACTIVE</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 my-2 my-md-0">
+                              <div class="d-flex align-items-center">
+                                <label class="mr-3 mb-0 d-none d-md-block"
+                                  >타입 :</label
+                                >
+                                <select
+                                  class="form-control"
+                                  id="kt_datatable_search_type"
+                                >
+                                  <option value="">All</option>
+                                  <option value="EC2">EC2</option>
+                                  <option value="SageMaker">SageMaker</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-lg-2 mt-5 mt-lg-0">
+                              <a
+                                href="#"
+                                class="
+                                  btn btn-light-primary
+                                  px-14
+                                  font-weight-bold
+                                "
+                                >Search</a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--end::Search Form-->
+                    <!--begin::Datatable-->
+                    <table
+                      class="datatable datatable-bordered datatable-head-custom"
+                      id="kt_datatable"
+                    >
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>샌드박스 이름</th>
+                          <th>볼륨</th>
+                          <th>상태</th>
+                          <th>승인여부</th>
+                          <th>생성일</th>
+                          <th>접속정보</th>
+                          <th>샌드박스 동작</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr th:each="item : ${sandboxes}">
+                          <td th:text="${item.idx}"></td>
+                          <td th:text="${item.name}"></td>
+                          <td th:text="${item.volume}"></td>
+                          <td>
+                            <span
+                              th:if="${T(mzc.data.portal.enums.CloudSandboxInstanceStatus).STARTING == item.cloudStatus}"
+                            >
+                              <span
+                                class="
+                                  label label-xl label-light-primary
+                                  font-weight-bolder
+                                  label-inline
+                                  ml-2
+                                "
+                                >시작 중</span
+                              >
+                            </span>
+                            <span
+                              th:if="${T(mzc.data.portal.enums.CloudSandboxInstanceStatus).RUNNING == item.cloudStatus}"
+                            >
+                              <span
+                                class="
+                                  label label-xl label-light-success
+                                  font-weight-bolder
+                                  label-inline
+                                  ml-2
+                                "
+                                >실행 중</span
+                              >
+                            </span>
+                            <span
+                              th:if="${T(mzc.data.portal.enums.CloudSandboxInstanceStatus).STOPPING == item.cloudStatus}"
+                            >
+                              <span
+                                class="
+                                  label label-xl label-secondary
+                                  font-weight-bolder
+                                  label-inline
+                                  ml-2
+                                "
+                                >중지 중</span
+                              >
+                            </span>
+                            <span
+                              th:if="${T(mzc.data.portal.enums.CloudSandboxInstanceStatus).STOPPED == item.cloudStatus}"
+                            >
+                              <span
+                                class="
+                                  label label-xl label-secondary
+                                  font-weight-bolder
+                                  label-inline
+                                  ml-2
+                                "
+                                >중지</span
+                              >
+                            </span>
+                            <span
+                              th:if="${T(mzc.data.portal.enums.CloudSandboxInstanceStatus).TERMINATED == item.cloudStatus}"
+                            >
+                              <span
+                                class="
+                                  label label-xl label-dark
+                                  font-weight-bolder
+                                  label-inline
+                                  ml-2
+                                "
+                                >삭제</span
+                              >
+                            </span>
+                            <span
+                              th:if="${T(mzc.data.portal.enums.CloudSandboxInstanceStatus).PROGRESS == item.cloudStatus}"
+                            >
+                              <span
+                                class="
+                                  label label-xl label-light-info
+                                  font-weight-bolder
+                                  label-inline
+                                  ml-2
+                                "
+                                >삭제 신청</span
+                              >
+                            </span>
+                            <span
+                              th:if="${T(mzc.data.portal.enums.CloudSandboxInstanceStatus).ERROR == item.cloudStatus}"
+                            >
+                              <span
+                                class="
+                                  label label-xl label-light-danger
+                                  font-weight-bolder
+                                  label-inline
+                                  ml-2
+                                "
+                                >에러</span
+                              >
+                            </span>
+                          </td>
+                          <td>
+                            <span
+                              th:if="${T(mzc.data.portal.enums.SandboxStatus).ACTIVE == item.status}"
+                            >
+                              <span
+                                class="
+                                  label label-xl label-light-primary
+                                  font-weight-bolder
+                                  label-inline
+                                  ml-2
+                                "
+                                >승인</span
+                              >
+                            </span>
+                            <span
+                              th:if="${T(mzc.data.portal.enums.SandboxStatus).REJECTED  ==item.status}"
+                            >
+                              <span
+                                class="
+                                  label label-xl label-light-danger
+                                  font-weight-bolder
+                                  label-inline
+                                  ml-2
+                                "
+                                >반려</span
+                              >
+                            </span>
+                            <span
+                              th:if="${T(mzc.data.portal.enums.SandboxStatus).WAITING == item.status}"
+                            >
+                              <span
+                                class="
+                                  label label-xl label-light-success
+                                  font-weight-bolder
+                                  label-inline
+                                  ml-2
+                                "
+                                >대기중</span
+                              >
+                            </span>
+                            <span
+                              th:if="${T(mzc.data.portal.enums.SandboxStatus).PROGRESS == item.status}"
+                            >
+                              <span
+                                class="
+                                  label label-xl label-light-info
+                                  font-weight-bolder
+                                  label-inline
+                                  ml-2
+                                "
+                                >삭제요청</span
+                              >
+                            </span>
+                            <span
+                              th:if="${T(mzc.data.portal.enums.SandboxStatus).TERMINATED == item.status}"
+                            >
+                              <span
+                                class="
+                                  label label-xl label-light-danger
+                                  font-weight-bolder
+                                  label-inline
+                                  ml-2
+                                "
+                                >삭제</span
+                              >
+                            </span>
+                          </td>
+                          <td
+                            th:text="${#temporals.format(item.createdAt, 'yyyy-MM-dd HH:mm:ss')}"
+                          ></td>
+                          <td
+                            th:if="${item.status == T(mzc.data.portal.enums.SandboxStatus).ACTIVE}"
+                          >
+                            <input
+                              type="button"
+                              class="btn bg-primary btn-sm text-gray-100"
+                              th:onclick="|getSgView('${itemStat.index}')|"
+                              value="보기"
+                            />
+                          </td>
+                          <!-- 샌드박스 동작 영역 -->
+                          <!--                                        &lt;!&ndash;//TODO 현재 샌드박스 정보 가져오는 xml(sql)에서 Join 문을 걸지 않아, CloudSandboxInstances 테이블의 정보를 가지고 오지 않고 있다.&ndash;&gt;-->
+                          <!--                                        <td th:if="${item.status == T(mzc.data.portal.enums.SandboxStatus).WAITING and item.cloudSandboxStatus == null}">-->
+                          <!--                                            신청 중-->
+                          <!--                                        </td>-->
+                          <!--                                        <td th:if="${item.status == T(mzc.data.portal.enums.SandboxStatus).REJECTED}">-->
+                          <!--                                            반려-->
+                          <!--                                        </td>-->
+                          <!--                                        <td th:if="${item.status == T(mzc.data.portal.enums.SandboxStatus).WAITING and item.cloudSandboxStatus == T(mzc.data.portal.enums.CloudSandboxInstanceStatus).STARTING}">-->
+                          <!--                                            생성 중-->
+                          <!--                                        </td>-->
+                          <!--                                        <td th:if="${item.status == T(mzc.data.portal.enums.SandboxStatus).ACTIVE and item.cloudSandboxStatus == T(mzc.data.portal.enums.CloudSandboxInstanceStatus).STARTING}">-->
+                          <!--                                            시작 중-->
+                          <!--                                        </td>-->
+                          <!--                                        <td th:if="${item.status == T(mzc.data.portal.enums.SandboxStatus).ACTIVE and item.cloudSandboxStatus == T(mzc.data.portal.enums.CloudSandboxInstanceStatus).RUNNING}">-->
+                          <!--                                            <input type="button" class="btn bg-primary btn-sm text-gray-100" th:onclick="|stopInstance('${item.idx}')|" value="중지"/>-->
+                          <!--                                            <input type="button" class="btn bg-danger btn-sm text-gray-100" th:onclick="|terminateInstance('${item.idx}')|" value="삭제 신청"/>-->
+                          <!--                                        </td>-->
+                          <!--                                        <td th:if="${item.status == T(mzc.data.portal.enums.SandboxStatus).ACTIVE and item.cloudSandboxStatus == T(mzc.data.portal.enums.CloudSandboxInstanceStatus).STOPPING}">-->
+                          <!--                                            중지 중-->
+                          <!--                                        </td>-->
+                          <!--                                        <td th:if="${item.status == T(mzc.data.portal.enums.SandboxStatus).ACTIVE and item.cloudSandboxStatus == T(mzc.data.portal.enums.CloudSandboxInstanceStatus).STOPPED}">-->
+                          <!--                                            <input type="button" class="btn bg-primary btn-sm text-gray-100" th:onclick="|startInstance('${item.idx}')|" value="시작"/>-->
+                          <!--                                            <input type="button" class="btn bg-danger btn-sm text-gray-100" th:onclick="|terminateInstance('${item.idx}')|" value="삭제 신청"/>-->
+                          <!--                                        </td>-->
+                          <!--                                        <td th:if="${item.status == T(mzc.data.portal.enums.SandboxStatus).ACTIVE and item.cloudSandboxStatus == T(mzc.data.portal.enums.CloudSandboxInstanceStatus).PROGRESS}">-->
+                          <!--                                            삭제 신청 중-->
+                          <!--                                        </td>-->
+                          <!--                                        &lt;!&ndash;TODO 이로직 다시 체크하기 error 상태인데 왜 삭제 처리하는지&ndash;&gt;-->
+                          <!--                                        <td th:if="${item.status == T(mzc.data.portal.enums.SandboxStatus).TERMINATED or item.cloudSandboxStatus == T(mzc.data.portal.enums.CloudSandboxInstanceStatus).TERMINATED or item.cloudSandboxStatus == T(mzc.data.portal.enums.CloudSandboxInstanceStatus).ERROR}">-->
+                          <!--                                            삭제-->
+                          <!--                                        </td>-->
+                          <!--//TODO 현재 샌드박스 정보 가져오는 xml(sql)에서 Join 문을 걸지 않아, CloudSandboxInstances 테이블의 정보를 가지고 오지 않고 있다.-->
+                          <td
+                            th:if="${item.status == T(mzc.data.portal.enums.SandboxStatus).WAITING}"
+                          >
+                            신청 중
+                          </td>
+                          <td
+                            th:if="${item.status == T(mzc.data.portal.enums.SandboxStatus).REJECTED}"
+                          >
+                            반려
+                          </td>
+                          <td
+                            th:if="${item.status == T(mzc.data.portal.enums.SandboxStatus).ACTIVE and item.cloudStatus == T(mzc.data.portal.enums.CloudSandboxInstanceStatus).RUNNING}"
+                          >
+                            <input
+                              type="button"
+                              class="btn bg-primary btn-sm text-gray-100"
+                              th:attr="onclick=|stopInstance('${item.idx}', '${item.sandboxModelType}')|"
+                              value="중지"
+                            />
+                            <input
+                              type="button"
+                              class="btn bg-danger btn-sm text-gray-100"
+                              th:onclick="|terminateInstance('${item.idx}')|"
+                              value="삭제 신청"
+                            />
+                          </td>
+                          <td
+                            th:if="${item.status == T(mzc.data.portal.enums.SandboxStatus).ACTIVE and item.cloudStatus == T(mzc.data.portal.enums.CloudSandboxInstanceStatus).STOPPED}"
+                          >
+                            <input
+                              type="button"
+                              class="btn bg-primary btn-sm text-gray-100"
+                              th:attr="onclick=|startInstance('${item.idx}', '${item.sandboxModelType}')|"
+                              value="시작"
+                            />
+                          </td>
+                          <td
+                            th:if="${item.status == T(mzc.data.portal.enums.SandboxStatus).TERMINATED}"
+                          >
+                            삭제
+                          </td>
+                          <td
+                            th:if="${item.status == T(mzc.data.portal.enums.SandboxStatus).PROGRESS}"
+                          >
+                            삭제 신청 중
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!--end: Datatable-->
+                    <div class="col-lg-12" id="ex1_Result1"></div>
+                    <div class="col-lg-12" id="ex1_Result2"></div>
+                  </div>
+                </div>
+                <!--end::Card-->
+                <!--begin::Modal-->
+                <!--                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+                <!--                            <div class="modal-dialog" role="document">-->
+                <!--                                <div class="modal-content">-->
+                <!--                                    <div class="modal-header">-->
+                <!--                                        <h5 class="modal-title" id="exampleModalLabel">Default Bootstrap Modal</h5>-->
+                <!--                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>-->
+                <!--                                    </div>-->
+                <!--                                    <div class="modal-body"></div>-->
+                <!--                                    <div class="modal-footer"><button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save changes</button></div>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <div
+                  class="modal fade"
+                  id="exampleModal"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-md">
+                    <input
+                      type="hidden"
+                      name="previewIdx"
+                      id="previewIdx"
+                      value=""
+                    />
+                    <div class="modal-content" style="min-height: 590px">
+                      <div class="modal-header py-5">
+                        <h5 class="modal-title">
+                          샌드박스 접속 정보
+                          <!--<span class="d-block text-muted font-size-sm">Local data source</span>-->
+                        </h5>
+
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          <i aria-hidden="true" class="ki ki-close"></i>
+                        </button>
+                      </div>
+                      <div class="modal-body"></div>
+                      <div class="modal-footer">
+                        <a
+                          type="button"
+                          id="sagemakerCntBtn"
+                          class="
+                            btn-btn-success
+                            connect-sagemaker-button
+                            font-weight-bolder
+                          "
+                          onclick="sagemakerCnt(this.getAttribute('data-parameter1'))"
+                          target="_blank"
+                          >접속</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--end::Modal-->
+              </div>
+              <!--end::Container-->
+            </div>
+            <!--end::Entry-->
+          </div>
+          <!--end::Content-->
+          <!--begin::Footer-->
+          <footer th:replace="fragments/user/footer :: footer" />
+          <!--end::Footer-->
+        </div>
+        <!--end::Wrapper-->
+      </div>
+      <!--end::Page-->
+    </div>
+    <!--end::Main-->
+    <!-- begin::User Panel-->
+    <div th:replace="fragments/user/panel :: panel"></div>
+    <!-- end::User Panel-->
+
+    <!--begin::Scrolltop-->
+    <div id="kt_scrolltop" class="scrolltop">
+      <span class="svg-icon">
+        <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Up-2.svg-->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          width="24px"
+          height="24px"
+          viewBox="0 0 24 24"
+          version="1.1"
+        >
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <polygon points="0 0 24 0 24 24 0 24" />
+            <rect
+              fill="#000000"
+              opacity="0.3"
+              x="11"
+              y="10"
+              width="2"
+              height="10"
+              rx="1"
+            />
+            <path
+              d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z"
+              fill="#000000"
+              fill-rule="nonzero"
+            />
+          </g>
+        </svg>
+        <!--end::Svg Icon-->
+      </span>
+    </div>
+    <!--end::Scrolltop-->
+    <script>
+      var HOST_URL =
+        "https://preview.keenthemes.com/metronic/theme/html/tools/preview";
+    </script>
+    <!--begin::Global Config(global config for global JS scripts)-->
+    <script>
+      var KTAppSettings = {
+        breakpoints: { sm: 576, md: 768, lg: 992, xl: 1200, xxl: 1400 },
+        colors: {
+          theme: {
+            base: {
+              white: "#ffffff",
+              primary: "#3699FF",
+              secondary: "#E5EAEE",
+              success: "#1BC5BD",
+              info: "#8950FC",
+              warning: "#FFA800",
+              danger: "#F64E60",
+              light: "#E4E6EF",
+              dark: "#181C32",
+            },
+            light: {
+              white: "#ffffff",
+              primary: "#E1F0FF",
+              secondary: "#EBEDF3",
+              success: "#C9F7F5",
+              info: "#EEE5FF",
+              warning: "#FFF4DE",
+              danger: "#FFE2E5",
+              light: "#F3F6F9",
+              dark: "#D6D6E0",
+            },
+            inverse: {
+              white: "#ffffff",
+              primary: "#ffffff",
+              secondary: "#3F4254",
+              success: "#ffffff",
+              info: "#ffffff",
+              warning: "#ffffff",
+              danger: "#ffffff",
+              light: "#464E5F",
+              dark: "#ffffff",
+            },
+          },
+          gray: {
+            "gray-100": "#F3F6F9",
+            "gray-200": "#EBEDF3",
+            "gray-300": "#E4E6EF",
+            "gray-400": "#D1D3E0",
+            "gray-500": "#B5B5C3",
+            "gray-600": "#7E8299",
+            "gray-700": "#5E6278",
+            "gray-800": "#3F4254",
+            "gray-900": "#181C32",
+          },
+        },
+        "font-family": "Poppins",
+      };
+    </script>
+    <!--end::Global Config-->
+    <!-- Script 영역 -->
+    <script th:inline="javascript">
+      /*<![CDATA[*/
+      var sandboxes = //List 선언
+        /*[[${sandboxes}]]*/ //Modal 호출 함수
+
+        function getSgView(index) {
+          var sandbox = sandboxes[index]; //리스트에서 Object를 가져옴
+
+          if (sandbox.cloudInstanceType == "EC2") {
+            $(".modal-body").html(
+              "<p>■ 접속 프라이빗 아이피 : " +
+                sandbox.cloudConnectionPrivateUrl +
+                "</p>\n" +
+                "<p>■ 접속 퍼블릭 아이피 : " +
+                sandbox.cloudConnectionPublicUrl +
+                "</p>\n" +
+                "<p>■ 아이디 / 패스워드</p>\n" +
+                "<p>- 윈도우 : 아이디 (사번) / 비밀번호 (초기 비밀번호: *******)</p>\n" +
+                "<p>- 리눅스 : 아이디 (sandbox-user) / 비밀번호 (sandbox!@)</p>\n" +
+                "<br/>" +
+                "<p>■ 클라우드 인스턴스 타입 : " +
+                sandbox.cloudInstanceType +
+                "</p>\n" +
+                "<p>■ 클라우드 인스턴스 아이디 : " +
+                sandbox.cloudInstanceId +
+                "</p>\n" +
+                "<br/>" +
+                "<p>■ 접속 방법</p>\n" +
+                "<p>- 윈도우 접속: 사용 망에서 원격데스크톱(Win + R버튼 > mstsc 입력) 프로그램을 실행하고, 위 <span style=\"color: #ff0000\"> '샌드박스 접속정보(IP)'</span>입력 후 로그인 창에서 아이디/패스워드를 입력하고 접속합니다.</p>\n" +
+                "<p>- 리눅스계열 접속: putty와 같은 ssh 접속 프로그램을 사용하여 <span style=\"color: #ff0000\">'샌드박스 접속정보(IP)'</span>로 접속 후, 아이디/패스워드를 입력하고 접속합니다.</p>\n" +
+                "<br/>" +
+                "<p>■ 접속 중지 (PC Off와 같은 기능)</p>\n" +
+                "<p>- 윈도우 : 샌드박스 내의 시스템 종료가 아닌 상단의 원격데스크톱 메뉴바의 x버튼을 클릭해주시고 포탈에서 <span style=\"color: red\">'중지'</span> 버튼을 클릭합니다.</p>\n" +
+                "<p>- 우분투 : 실행하고있는 ssh 접속프로그램을 종료하시고 포탈에서 <span style=\"color: red\">'중지'</span> 버튼으로 클릭합니다.</p>\n" +
+                "<br/>" +
+                "<p>■ 샌드박스 삭제 (주의 : 삭제 시 복구 불가)</p>\n" +
+                "<p>- 윈도우 : 사용자가 ITSM을 통해 삭제 신청 하고 <span style=\"color: red\">'원격 허용 그룹 삭제'</span> 승인 처리 후 포탈에서 대상 샌드박스 '삭제' 버튼을 클릭합니다.</p>\n" +
+                "<p>- 우분투 : 사용자가 ITSM을 통해 삭제 신청 하고 승인 처리 후 포탈에서 대상 샌드박스 <span style=\"color: red\">'삭제 '</span> 버튼을 클릭합니다.</p>"
+            );
+            $(".modal-footer").hide();
+          }
+          if (sandbox.cloudInstanceType == "SAGEMAKER") {
+            $(".modal-body").html(
+              "<p>■ 클라우드 인스턴스 타입 : " +
+                sandbox.cloudInstanceType +
+                "</p>\n" +
+                "<p>■ 클라우드 인스턴스 아이디 : " +
+                sandbox.cloudInstanceId +
+                "</p>\n" +
+                "<br/>" +
+                "<p>■ 접속 방법</p>\n" +
+                "<p>- 윈도우 접속: 사용 망에서 원격데스크톱(Win + R버튼 > mstsc 입력) 프로그램을 실행하고, 위 <span style=\"color: #ff0000\"> '샌드박스 접속정보(IP)'</span>입력 후 로그인 창에서 아이디/패스워드를 입력하고 접속합니다.</p>\n" +
+                "<p>- 리눅스계열 접속: putty와 같은 ssh 접속 프로그램을 사용하여 <span style=\"color: #ff0000\">'샌드박스 접속정보(IP)'</span>로 접속 후, 아이디/패스워드를 입력하고 접속합니다.</p>\n" +
+                "<br/>" +
+                "<p>■ 접속 중지 (PC Off와 같은 기능)</p>\n" +
+                "<p>- 윈도우 : 샌드박스 내의 시스템 종료가 아닌 상단의 원격데스크톱 메뉴바의 x버튼을 클릭해주시고 포탈에서 <span style=\"color: red\">'중지'</span> 버튼을 클릭합니다.</p>\n" +
+                "<p>- 우분투 : 실행하고있는 ssh 접속프로그램을 종료하시고 포탈에서 <span style=\"color: red\">'중지'</span> 버튼으로 클릭합니다.</p>\n" +
+                "<br/>" +
+                "<p>■ 샌드박스 삭제 (주의 : 삭제 시 복구 불가)</p>\n" +
+                "<p>- 윈도우 : 사용자가 ITSM을 통해 삭제 신청 하고 <span style=\"color: red\">'원격 허용 그룹 삭제'</span> 승인 처리 후 포탈에서 대상 샌드박스 '삭제' 버튼을 클릭합니다.</p>\n" +
+                "<p>- 우분투 : 사용자가 ITSM을 통해 삭제 신청 하고 승인 처리 후 포탈에서 대상 샌드박스 <span style=\"color: red\">'삭제 '</span> 버튼을 클릭합니다.</p>"
+            );
+            $(".modal-footer").show();
+            $("#sagemakerCntBtn").attr("data-parameter1", sandbox.idx);
+          }
+          $("#exampleModal").modal("show");
+        };
+
+      /*]]>*/
+    </script>
+
+    <script>
+      function syncInstance() {
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+
+        var param = {};
+
+        jQuery.ajax({
+          url: "/cloud-instance/sync",
+          type: "POST",
+          dataType: "json",
+          data: param,
+          async: false,
+          beforeSend: function (xhr) {
+            xhr.setRequestHeader(header, token);
+          },
+          timeout: 100000,
+          success: function (res) {
+            location.reload();
+          },
+          error: function (res) {
+            $.blockPage.remove();
+          },
+        });
+      }
+
+      function stopInstance(SandboxIdx, sandboxType) {
+        /*Spring Security로 받은 Auth값 전송하기 위한 파라미터*/
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+
+        var param = {
+          idx: SandboxIdx,
+        };
+
+        var url = "";
+        if (sandboxType == "SAGEMAKER") {
+          url = "/cloud-instance/sagemaker/stop";
+        } else {
+          url = "/cloud-instance/ec2/stop";
+        }
+
+        if (
+          confirm(
+            "샌드박스를 중지 하시겠습니까? 중지하시면 요금이 과금되지 않습니다."
+          )
+        ) {
+          jQuery.ajax({
+            url: url,
+            type: "POST",
+            dataType: "json",
+            data: param,
+            beforeSend: function (xhr) {
+              xhr.setRequestHeader(header, token);
+              $(".wrap-loading").removeClass("display-none");
+            },
+            timeout: 100000,
+            success: function (res) {
+              alert("중지 완료.");
+              $(".wrap-loading").addClass("display-none");
+              location.reload();
+            },
+            error: function (res) {
+              console.log(res);
+              $.markingErrorField(res);
+              $(".wrap-loading").addClass("display-none");
+            },
+          });
+        }
+      }
+
+      function startInstance(SandboxIdx, sandboxType) {
+        /*Spring Security로 받은 Auth값 전송하기 위한 파라미터*/
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+
+        var param = {
+          idx: SandboxIdx,
+        };
+
+        var url = "";
+        if (sandboxType == "SAGEMAKER") {
+          url = "/cloud-instance/sagemaker/start";
+        } else {
+          url = "/cloud-instance/ec2/start";
+        }
+
+        if (confirm("샌드박스를 시작하시겠습니까?")) {
+          jQuery.ajax({
+            url: url,
+            type: "POST",
+            dataType: "json",
+            data: param,
+            beforeSend: function (xhr) {
+              xhr.setRequestHeader(header, token);
+              $(".wrap-loading").removeClass("display-none");
+            },
+            timeout: 100000,
+            success: function (res) {
+              alert("시작 완료.");
+              $(".wrap-loading").addClass("display-none");
+              location.reload();
+            },
+            error: function (res) {
+              console.log(res);
+              $.markingErrorField(res);
+              $(".wrap-loading").addClass("display-none");
+            },
+          });
+        }
+      }
+
+      function terminateInstance(SandboxIdx) {
+        /*Spring Security로 받은 Auth값 전송하기 위한 파라미터*/
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+
+        var param = {
+          idx: SandboxIdx,
+        };
+
+        if (
+          confirm(
+            "샌드박스를 삭제 신청을 하시겠습니까? 작업하신 데이터가 전부 삭제되며 복구되지 않습니다."
+          )
+        ) {
+          jQuery.ajax({
+            url: "/sandbox/request/terminate",
+            type: "POST",
+            dataType: "json",
+            data: param,
+            beforeSend: function (xhr) {
+              xhr.setRequestHeader(header, token);
+              $(".wrap-loading").removeClass("display-none");
+            },
+            timeout: 100000,
+            success: function (res) {
+              alert("삭제 신청 완료.");
+              $(".wrap-loading").addClass("display-none");
+              location.reload();
+            },
+            error: function (res) {
+              console.log(res);
+              $.markingErrorField(res);
+              $(".wrap-loading").addClass("display-none");
+            },
+          });
+        }
+      }
+
+      function sagemakerCnt(idx) {
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+
+        var param = {
+          idx: idx,
+        };
+
+        jQuery.ajax({
+          url: "/sandboxes/presign-url",
+          type: "POST",
+          dataType: "json",
+          data: param,
+          async: false,
+          beforeSend: function (xhr) {
+            xhr.setRequestHeader(header, token);
+            $(".wrap-loading").removeClass("display-none");
+          },
+          timeout: 100000,
+          success: function (res) {
+            $(".wrap-loading").addClass("display-none");
+            $("#sagemakerCntBtn").attr("href", res.data);
+          },
+          error: function (res) {
+            $.markingErrorField(res);
+            $(".wrap-loading").addClass("display-none");
+          },
+        });
+      }
+    </script>
+    <!--begin::Global Theme Bundle(used by all pages)-->
+    <script src="assets/plugins/global/plugins.bundle.js"></script>
+    <script src="assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+    <script src="assets/js/scripts.bundle.js"></script>
+    <!--end::Global Theme Bundle-->
+    <!--begin::Page Vendors(used by this page)-->
+    <script src="assets/js/pages/crud/ktdatatable/base/html-table.js"></script>
+
+    <script src="assets/js/portal/common.js"></script>
+    <script src="assets/js/portal/cloud-instance.js"></script>
+    <script src="assets/js/portal/admin/sandbox-sagemaker.js"></script>
+    <script src="assets/js/portal/admin/sandbox-ec2.js"></script>
+    <!--end::Page Scripts-->
+  </body>
+  <!--end::Body-->
+</html>

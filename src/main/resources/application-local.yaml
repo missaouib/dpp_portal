@@ -1,0 +1,36 @@
+spring:
+  thymeleaf:
+    cache: false
+    prefix: classpath:templates/
+    check-template-location: true
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://amr-dev-rds.cmu3j6nns78l.ap-northeast-2.rds.amazonaws.com:3306/d2p?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: admin
+    password: adminadmin
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+     maximum-pool-size: 2
+
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+
+logging:
+  level:
+    root: info
+
+
+cloud:
+  instance:
+    subnet-id: subnet-0bdd44a3daa61b108
+    security-group: sg-02f5a7bf901e834f9
+    ebs-device-name: /dev/sda1

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--
+Template Name: Metronic - Bootstrap 4 HTML, React, Angular 11 & VueJS Admin Dashboard Theme
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: https://1.envato.market/EA4JP
+Renew Support: https://1.envato.market/EA4JP
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<!--begin::Head-->
+<head>
+    <base href="/">
+    <meta charset="utf-8"/>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <title>Admin | Data Potal Platform</title>
+    <meta name="description" content="Aside light theme example"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="canonical" href="https://keenthemes.com/metronic"/>
+    <!--begin::Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
+    <!--end::Fonts-->
+    <!--begin::Page Vendors Styles(used by this page)-->
+    <link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css"/>
+    <!--end::Page Vendors Styles-->
+    <!--begin::Global Theme Styles(used by all pages)-->
+    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css"/>
+    <!--end::Global Theme Styles-->
+    <!--begin::Layout Themes(used by all pages)-->
+    <link href="assets/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/themes/layout/brand/light.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/themes/layout/aside/light.css" rel="stylesheet" type="text/css"/>
+    <!--end::Layout Themes-->
+    <link rel="icon" href="https://imgnew.megazone.com/2019/08/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="icon" href="https://imgnew.megazone.com/2019/08/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="https://imgnew.megazone.com/2019/08/favicon-60.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://imgnew.megazone.com/2019/08/favicon-76.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://imgnew.megazone.com/2019/08/favicon-120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://imgnew.megazone.com/2019/08/favicon-152.png">
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_body"
+      class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+<!--begin::Main-->
+<!--begin::Header Mobile-->
+<div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
+    <!--begin::Toolbar-->
+    <div class="d-flex align-items-center">
+        <!--begin::Aside Mobile Toggle-->
+        <button class="btn p-0 burger-icon burger-icon-left" id="kt_aside_mobile_toggle">
+            <span></span>
+        </button>
+        <!--end::Aside Mobile Toggle-->
+        <!--begin::Header Menu Mobile Toggle-->
+        <button class="btn p-0 burger-icon ml-4" id="kt_header_mobile_toggle">
+            <span></span>
+        </button>
+        <!--end::Header Menu Mobile Toggle-->
+        <!--begin::Topbar Mobile Toggle-->
+        <button class="btn btn-hover-text-primary p-0 ml-2" id="kt_header_mobile_topbar_toggle">
+					<span class="svg-icon svg-icon-xl">
+						<!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                             height="24px" viewBox="0 0 24 24" version="1.1">
+							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								<polygon points="0 0 24 0 24 24 0 24"/>
+								<path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+                                      fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+								<path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
+                                      fill="#000000" fill-rule="nonzero"/>
+							</g>
+						</svg>
+                        <!--end::Svg Icon-->
+					</span>
+        </button>
+        <!--end::Topbar Mobile Toggle-->
+    </div>
+    <!--end::Toolbar-->
+</div>
+<!--end::Header Mobile-->
+
+<div class="d-flex flex-column flex-root">
+    <!--begin::Page-->
+    <div class="d-flex flex-row flex-column-fluid page">
+        <!--begin::Aside-->
+        <div th:replace="fragments/admin/nav-left :: navLeft"></div>
+        <!--end::Aside-->
+        <!--begin::Wrapper-->
+        <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+            <!--begin::Header-->
+            <div th:replace="fragments/admin/header :: navHeader"></div>
+            <!--end::Header-->
+            <!--begin::Content-->
+            <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                <!--begin::Entry-->
+                <div class="d-flex flex-column-fluid">
+                    <!--begin::Container-->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!--begin::Card-->
+                                <div class="card card-custom gutter-b example example-compact">
+                                    <div class="card-header">
+                                        <div class="card-title">
+                                            <h3>샌드박스 모델 생성</h3>
+                                        </div>
+                                        <div class="card-toolbar">
+                                            <!--<div class="example-tools justify-content-center">
+                                                <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
+                                                <span class="example-copy" data-toggle="tooltip" title="Copy code"></span>
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                    <!--begin::Form-->
+                                    <form>
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label>모델 이름
+                                                    <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="sandboxModelName"
+                                                       placeholder="모델 이름"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>모델 설명
+                                                    <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="sandboxModelDescription"
+                                                       placeholder="모델 설명"/>
+                                            </div>
+
+                                            <!--begin::샌드박스 종류 선택-->
+                                            <div class="form-group">
+                                                <label>샌드박스 종류:</label>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <label class="option">
+                                                            <span class="option-control">
+                                                                <span class="radio">
+                                                                    <input type="radio" id="ec2-radio"
+                                                                           name="sandboxModelType"
+                                                                           th:value="${T(mzc.data.portal.enums.SandboxType).EC2}"
+                                                                           checked="checked"/>
+                                                                    <span></span>
+                                                                </span>
+                                                            </span>
+                                                            <span class="option-label">
+                                                                <span class="option-head">
+                                                                    <span class="option-title">EC2</span>
+                                                                    <!--																			<span class="option-focus">Free</span>-->
+                                                                </span>
+                                                                <span class="option-body">window와 Ubuntu를 선택할 수 있습니다.</span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <label class="option">
+                                                            <span class="option-control">
+                                                                <span class="radio">
+                                                                    <input type="radio" id="sagemaker-radio"
+                                                                           name="sandboxModelType"
+                                                                           th:value="${T(mzc.data.portal.enums.SandboxType).SAGEMAKER}"/>
+                                                                    <span></span>
+                                                                </span>
+                                                            </span>
+                                                            <span class="option-label">
+                                                                <span class="option-head">
+                                                                    <span class="option-title">SageMaker</span>
+                                                                    <!--																			<span class="option-focus">$&#160;8.00</span>-->
+                                                                </span>
+                                                                <span class="option-body">머신러닝을 위한 샌드박스입니다.</span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end::샌드박스 종류 선택-->
+
+                                            <!--begin::모델 스펙 선택-->
+                                            <div class="form-group row">
+                                                <label class="col-form-label text-left col-lg-3 col-sm-12">모델 스펙
+                                                    선택</label>
+                                                <div class="col-lg-9 col-md-9 col-sm-12" id="ec2SelectDiv">
+                                                    <div class="dropdown bootstrap-select form-control">
+                                                        <select class="form-control selectpicker" id="sandboxSpecEC2Idx"
+                                                                data-size="5" data-live-search="true">
+                                                            <option th:each="item : ${sandboxSpecsEC2}"
+                                                                    th:value="${item.sandboxSpecIdx}"
+                                                                    th:text="'Type: ' + ${item.sandboxType} + ', OS: ' + ${item.sandboxOs} + ', Instance Type: ' + ${item.instanceType} + ', Cpu: ' + ${item.sandboxCpu} + ', Memory(Gb): ' + ${item.sandboxMemory} + ', Network: ' + ${item.sandboxNetworkDescription} + ', Price: ' + ${item.sandboxPrice}"></option>
+                                                        </select>
+                                                        <div class="dropdown-menu">
+                                                            <div class="bs-searchbox">
+                                                                <input type="search"
+                                                                       class="form-control"
+                                                                       autocomplete="off"
+                                                                       role="combobox"
+                                                                       aria-label="Search"
+                                                                       aria-controls="bs-select-ec2-01"
+                                                                       aria-autocomplete="list">
+                                                            </div>
+                                                            <div class="inner show" role="listbox" id="bs-select-ec2-01"
+                                                                 tabindex="-1">
+                                                                <ul class="dropdown-menu inner show"
+                                                                    role="presentation"></ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-9 col-md-9 col-sm-12 d-none" id="sagemakerSelectDiv">
+                                                    <div class="dropdown bootstrap-select form-control">
+                                                        <select class="form-control selectpicker" id="sandboxSpecSAGEMAKERIdx"
+                                                                data-size="5" data-live-search="true">
+                                                                <option th:each="item : ${sandboxSpecsSAGEMAKER}"
+                                                                    th:value="${item.sandboxSpecIdx}"
+                                                                    th:text="'Type: ' + ${item.sandboxType} + ', OS: ' + ${item.sandboxOs} + ', Instance Type: ' + ${item.instanceType} + ', Cpu: ' + ${item.sandboxCpu} + ', Memory(Gb): ' + ${item.sandboxMemory} + ', Network: ' + ${item.sandboxNetworkDescription} + ', Price: ' + ${item.sandboxPrice}"></option>
+                                                        </select>
+                                                        <div class="dropdown-menu">
+                                                            <div class="bs-searchbox">
+                                                                <input type="search"
+                                                                       class="form-control"
+                                                                       autocomplete="off"
+                                                                       role="combobox"
+                                                                       aria-label="Search"
+                                                                       aria-controls="bs-select-sagemaker-01"
+                                                                       aria-autocomplete="list">
+                                                            </div>
+                                                            <div class="inner show" role="listbox" id="bs-select-sagemaker-01"
+                                                                 tabindex="-1">
+                                                                <ul class="dropdown-menu inner show"
+                                                                    role="presentation"></ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end::모델 스펙 선택-->
+
+                                            <!--begin::모델 이미지 선택-->
+                                            <div class="form-group row" id="modelImageDiv">
+                                                <label class="col-form-label text-left col-lg-3 col-sm-12">모델 이미지
+                                                    선택</label>
+                                                <div class="col-lg-9 col-md-9 col-sm-12">
+                                                    <div class="dropdown bootstrap-select form-control">
+                                                        <select class="form-control selectpicker" id="sandboxImageIdx"
+                                                                data-size="5" data-live-search="true">
+                                                            <option th:each="item : ${sandboxImages}"
+                                                                    th:value="${item.sandboxImageIdx}"
+                                                                    th:text="'Type: ' + ${item.sandboxType} + ', OS: ' + ${item.sandboxOs} + ', ID: ' + ${item.cloudImageId} + ', Description: ' + ${item.sandboxImageDescription} + ', Volumn: ' + ${item.sandboxImageVolume}"></option>
+                                                        </select>
+                                                        <div class="dropdown-menu ">
+                                                            <div class="bs-searchbox">
+                                                                <input type="search"
+                                                                       class="form-control"
+                                                                       autocomplete="off"
+                                                                       role="combobox"
+                                                                       aria-label="Search"
+                                                                       aria-controls="bs-select-02"
+                                                                       aria-autocomplete="list">
+                                                            </div>
+                                                            <div class="inner show" role="listbox" id="bs-select-02"
+                                                                 tabindex="-1">
+                                                                <ul class="dropdown-menu inner show"
+                                                                    role="presentation"></ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end::모델 이미지 선택-->
+
+                                        </div>
+                                        <div class="card-footer">
+                                            <button type="button" class="btn btn-primary mr-2"
+                                                    onClick="addSandboxModel();">모델생성
+                                            </button>
+                                            <button type="reset" class="btn btn-secondary">취소</button>
+                                        </div>
+                                    </form>
+                                    <!--end::Form-->
+                                </div>
+                                <!--end::Card-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Entry-->
+            </div>
+            <!--end::Content-->
+            <!--begin::Footer-->
+            <footer th:replace="fragments/admin/footer :: footer"/>
+            <!--end::Footer-->
+        </div>
+        <!--end::Wrapper-->
+    </div>
+    <!--end::Page-->
+</div>
+<!--end::Main-->
+<!-- begin::User Panel-->
+<div th:replace="fragments/admin/panel :: panel"></div>
+<!-- end::User Panel-->
+
+<!--begin::Scrolltop-->
+<div id="kt_scrolltop" class="scrolltop">
+			<span class="svg-icon">
+				<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Up-2.svg-->
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                     height="24px" viewBox="0 0 24 24" version="1.1">
+					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						<polygon points="0 0 24 0 24 24 0 24"/>
+						<rect fill="#000000" opacity="0.3" x="11" y="10" width="2" height="10" rx="1"/>
+						<path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z"
+                              fill="#000000" fill-rule="nonzero"/>
+					</g>
+				</svg>
+                <!--end::Svg Icon-->
+			</span>
+</div>
+<!--end::Scrolltop-->
+<script src="assets/plugins/global/plugins.bundle.js"></script>
+<script src="assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+<script src="assets/js/scripts.bundle.js"></script>
+<script src="assets/js/portal/common.js"></script>
+<script>
+
+    $(".card").on("change", "input[name='sandboxModelType']", function (e) {
+        if ($(this).val() == "EC2") { // EC2 일 때
+            $("#ec2SelectDiv").removeClass("d-none"); //EC2의 스펙 선택 보여주기
+            $("#sagemakerSelectDiv").addClass("d-none"); //SAGEMAKER의 스펙 선택 안보여주기
+            $("#modelImageDiv").removeClass("d-none"); //이미지 선택 보여주기
+        } else { // SAGEMAKER 일 때
+            $("#ec2SelectDiv").addClass("d-none"); //EC2의 스펙 선택 안보여주기
+            $("#sagemakerSelectDiv").removeClass("d-none"); //SAGEMAKER의 스펙 선택 보여주기
+            $("#modelImageDiv").addClass("d-none"); //이미지 선택 안보여주기
+        }
+
+    });
+
+    function addSandboxModel() {
+        /*Spring Security로 받은 Auth값 전송하기 위한 파라미터*/
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+
+        if( $(':radio[name="sandboxModelType"]:checked').val() == "EC2") {
+            var param = {
+                "sandboxModelName": $("#sandboxModelName").val(),
+                "sandboxModelDescription": $("#sandboxModelDescription").val(),
+                "sandboxImageIdx": $("#sandboxImageIdx").val(),
+                "sandboxSpecIdx": $("#sandboxSpecEC2Idx").val(),
+                "sandboxModelType": $("#ec2-radio").val()
+            }
+        } else {
+            var param = {
+                "sandboxModelName": $("#sandboxModelName").val(),
+                "sandboxModelDescription": $("#sandboxModelDescription").val(),
+                "sandboxImageIdx": $("#sandboxImageIdx").val(),
+                "sandboxSpecIdx": $("#sandboxSpecSAGEMAKERIdx").val(),
+                "sandboxModelType": $("#sagemaker-radio").val()
+            }
+        }
+
+        jQuery.ajax({
+            url: "/admin/sandbox-model/add"
+            , type: "POST"
+            , dataType: "json"
+            , data: param
+            , async: false
+            , beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, token);
+                $('.wrap-loading').removeClass('display-none');
+            }
+            , timeout: 100000
+            , success: function (res) {
+                alert("샌드박스모델이 생성되었습니다!");
+                $('.wrap-loading').addClass('display-none');
+                $(location).attr('href', '/admin/sandbox-model');
+            }
+            , error: function (res) {
+                markingErrorField(res);
+                $('.wrap-loading').addClass('display-none');
+            }
+        });
+
+    }
+</script>
+<!--end::Global Config-->
+<!--begin::Global Theme Bundle(used by all pages)-->
+
+<!--end::Global Theme Bundle-->
+<!--begin::Page Vendors(used by this page)-->
+<!--end::Page Scripts-->
+</body>
+<!--end::Body-->
+</html>

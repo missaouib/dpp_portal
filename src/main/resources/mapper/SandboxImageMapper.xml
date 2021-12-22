@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mzc.data.portal.mapper.SandboxImageMapper">
+    <select id="findSandboxImages" resultType="mzc.data.portal.dto.SandboxImageData">
+        SELECT
+            sandbox_image_idx as sandboxImageIdx,
+            sandbox_type as sandboxType,
+            sandbox_os as sandboxOs,
+            cloud_image_id as cloudImageId,
+            sandbox_image_description as sandboxImageDescription,
+            sandbox_image_tags as sandboxImageTags,
+            sandbox_image_status as sandboxImageStatus,
+            sandbox_image_volume as sandboxImageVolume,
+            sandbox_image_created_user_idx as sandboxImageCreatedUserIdx,
+            sandbox_image_created_at as sandboxImageCreatedAt,
+            sandbox_image_updated_user_idx as sandboxImageUpdatedUserIdx,
+            sandbox_image_updated_at as sandboxImageUpdatedAt
+        FROM
+            d2p.sandbox_images
+    </select>
+    <select id="getSandboxImageInfo" resultType="mzc.data.portal.dto.SandboxImageData$GetSandboxImageInfoParam">
+        SELECT
+            sandbox_image_idx as sandboxImageIdx,
+            sandbox_type as sandboxType,
+            sandbox_os as sandboxOs,
+            cloud_image_id as cloudImageId,
+            sandbox_image_description as sandboxImageDescription,
+            sandbox_image_tags as sandboxImageTags,
+            sandbox_image_status as sandboxImageStatus,
+            sandbox_image_volume as sandboxImageVolume,
+            sandbox_image_created_user_idx as sandboxImageCreatedUserIdx,
+            sandbox_image_created_at as sandboxImageCreatedAt,
+            sandbox_image_updated_user_idx as sandboxImageUpdatedUserIdx,
+            sandbox_image_updated_at as sandboxImageUpdatedAt
+        FROM
+            d2p.sandbox_images
+        where
+            sandbox_image_idx = #{sandboxImageIdx}
+    </select>
+    <insert id="addSandboxImage">
+        INSERT INTO
+            d2p.sandbox_images
+        (
+            sandbox_type
+        , sandbox_os
+        , cloud_image_id
+        , sandbox_image_description
+        , sandbox_image_tags
+        , sandbox_image_status
+        , sandbox_image_volume
+        , sandbox_image_created_user_idx
+        , sandbox_image_created_at
+        )
+        VALUES(
+                  #{sandboxType}
+              , #{sandboxOs}
+              , #{cloudImageId}
+              , #{sandboxImageDescription}
+              , NULL
+              , #{sandboxImageStatus}
+              , #{sandboxImageVolume}
+              , #{sandboxImageCreatedUserIdx}
+              , NOW()
+              )
+    </insert>
+
+    <update id="updateSandboxImage">
+        UPDATE
+            d2p.sandbox_images
+        SET
+            sandbox_model_description = #{sandboxModelDescription},
+            sandbox_model_status = #{sandboxModelStatus},
+            sandbox_model_updated_user_idx = #{sandboxModelUpdatedUserIdx},
+            sandbox_model_updated_at = NOW()
+        WHERE
+            sandbox_model_idx = #{sandboxModelIdx}
+    </update>
+</mapper>

@@ -1,0 +1,42 @@
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="headerCommon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <!--begin::csrf-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <!--end::csrf-->
+    <link rel="canonical" href="https://keenthemes.com/metronic"/>
+
+    <!--begin::Fonts-->
+    <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700}">
+    <!--end::Fonts-->
+
+    <!--begin::Page Vendors Styles(used by this page)-->
+    <link rel="stylesheet" th:href="@{/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css}">
+    <!--end::Page Vendors Styles-->
+
+    <!--begin::Global Theme Styles(used by all pages)-->
+    <link rel="stylesheet" th:href="@{/assets/plugins/global/plugins.bundle.css}">
+    <link rel="stylesheet" th:href="@{/assets/plugins/custom/prismjs/prismjs.bundle.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/style.bundle.css}">
+    <!--end::Global Theme Styles-->
+
+    <!--begin::Layout Themes(used by all pages)-->
+    <link rel="stylesheet" th:href="@{/assets/css/themes/layout/header/base/light.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/themes/layout/header/menu/light.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/themes/layout/brand/light.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/themes/layout/aside/light.css}">
+    <!--end::Layout Themes-->
+
+    <link rel="icon" th:href="@{https://imgnew.megazone.com/2019/08/favicon-16.png}" th:sizes="16x16">
+    <link rel="icon" th:href="@{https://imgnew.megazone.com/2019/08/favicon-32.png}" th:sizes="32x32">
+    <link rel="apple-touch-icon" th:href="@{https://imgnew.megazone.com/2019/08/favicon-60.png}">
+    <link rel="apple-touch-icon" th:href="@{https://imgnew.megazone.com/2019/08/favicon-76.png}" th:sizes="76x76">
+    <link rel="apple-touch-icon" th:href="@{https://imgnew.megazone.com/2019/08/favicon-120.png}" th:sizes="120x120">
+    <link rel="apple-touch-icon" th:href="@{https://imgnew.megazone.com/2019/08/favicon-152.png}" th:sizes="152x152">
+
+    <link rel="stylesheet" th:href="@{/assets/css/site-custom.css}">
+
+    <!--<script th:src="@{/js/common/common.js}"></script>-->
+</th:block>
+</html>

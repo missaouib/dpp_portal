@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <!--begin::Head-->
+  <head>
+    <base href="../../../../" />
+    <meta charset="utf-8" />
+    <title>MEGAZONE CLOUD</title>
+    <meta name="description" content="Sign up page" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="canonical" href="https://keenthemes.com/metronic" />
+    <!--begin::Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <!--end::Fonts-->
+    <!--begin::Page Custom Styles(used by this page)-->
+    <link href="assets/css/pages/login/login-3.css" rel="stylesheet" type="text/css" />
+    <!--end::Page Custom Styles-->
+    <!--begin::Global Theme Styles(used by all pages)-->
+    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <!--end::Global Theme Styles-->
+    <!--begin::Layout Themes(used by all pages)-->
+    <link href="assets/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
+    <!--end::Layout Themes-->
+    <link rel="icon" href="https://imgnew.megazone.com/2019/08/favicon-16.png" type="image/png" sizes="16x16" />
+    <link rel="icon" href="https://imgnew.megazone.com/2019/08/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="https://imgnew.megazone.com/2019/08/favicon-60.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="https://imgnew.megazone.com/2019/08/favicon-76.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="https://imgnew.megazone.com/2019/08/favicon-120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="https://imgnew.megazone.com/2019/08/favicon-152.png" />
+    <meta name="_csrf" th:content="${_csrf.token}" />
+    <meta name="_csrf_header" th:content="${_csrf.headerName}" />
+  </head>
+  <!--end::Head-->
+  <!--begin::Body-->
+  <body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+    <!--begin::Main-->
+    <div class="d-flex flex-column flex-root">
+      <!--begin::Login-->
+      <div class="login login-3 wizard d-flex flex-column flex-lg-row flex-column-fluid">
+        <!--begin::Aside-->
+        <div class="login-aside d-flex flex-column flex-row-auto">
+          <!--begin::Aside Top-->
+          <div class="d-flex flex-column-auto flex-column pt-lg-40 pt-15">
+            <!--begin::Aside header-->
+
+            <!--end::Aside header-->
+            <!--begin::Aside Title-->
+            <h3 class="font-weight-bolder text-center font-size-h4 text-dark-50 line-height-xl"> Megazone Cloud <br />Data Portal Platform </h3>
+            <!--end::Aside Title-->
+          </div>
+          <!--end::Aside Top-->
+          <!--begin::Aside Bottom-->
+          <div class="aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-x-center" style="background-position-y: calc(100% + 5rem); background-image: url(assets/media/svg/illustrations/login-visual-5.svg)"></div>
+          <!--end::Aside Bottom-->
+        </div>
+        <!--begin::Aside-->
+        <!--begin::Content-->
+        <div class="login-content flex-row-fluid d-flex flex-column p-10">
+          <!--begin::Top-->
+          <div class="text-right d-flex justify-content-center">
+            <div class="top-signin text-right d-flex justify-content-end pt-5 pb-lg-0 pb-10"></div>
+          </div>
+          <!--end::Top-->
+          <!--begin::Wrapper-->
+          <div class="d-flex flex-row-fluid flex-center">
+            <!--begin::Entry-->
+            <div class="d-flex flex-column-fluid">
+              <!--begin::Container-->
+              <div class="container">
+                <!--begin::Card-->
+                <div class="card card-custom">
+                  <form action="/sign-up2" method="post" enctype="multipart/form-data" name="userAddForm" id="userAddForm">
+                    <div class="card-header flex-wrap border-0 pt-6 pb-0">
+                      <div class="card-title">
+                        <h3 class="card-label">회원가입</h3>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div id="errMessage"></div>
+                      <div class="form-group">
+                        <label for="loginId">로그인 아이디 <span class="text-danger">*</span></label>
+                        <input type="text" name="loginId" id="loginId" class="form-control" placeholder="로그인 아이디를 입력하세요" />
+                        <!--                                        <span class="form-text text-muted">로그인 하기 위한 아이디를 입력하여 주세요.</span>-->
+                      </div>
+                      <div class="form-group">
+                        <label for="nickName">닉네임 <span class="text-danger">*</span></label>
+                        <input type="text" name="nickName" id="nickName" class="form-control" placeholder="닉네임을 입력하세요" />
+                      </div>
+                      <div class="form-group">
+                        <label for="loginPw">비밀번호 <span class="text-danger">*</span></label>
+                        <input type="password" class="form-control" name="loginPw" id="loginPw" placeholder="비밀번호를 입력하세요" />
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <button type="button" id="formSubmitBtn" class="btn btn-primary mr-2"> 가입 </button>
+                      <button type="reset" class="btn btn-secondary"> 취소 </button>
+                    </div>
+                  </form>
+                </div>
+                <!--end::Card-->
+              </div>
+              <!--end::Container-->
+            </div>
+            <!--end::Entry-->
+          </div>
+          <!--end::Wrapper-->
+        </div>
+        <!--end::Content-->
+      </div>
+      <!--end::Login-->
+    </div>
+    <!--end::Main-->
+    <script>
+      var HOST_URL = 'https://preview.keenthemes.com/metronic/theme/html/tools/preview';
+    </script>
+    <!--begin::Global Config(global config for global JS scripts)-->
+    <script>
+      var KTAppSettings = {
+        breakpoints: { sm: 576, md: 768, lg: 992, xl: 1200, xxl: 1400 },
+        colors: {
+          theme: {
+            base: {
+              white: '#ffffff',
+              primary: '#3699FF',
+              secondary: '#E5EAEE',
+              success: '#1BC5BD',
+              info: '#8950FC',
+              warning: '#FFA800',
+              danger: '#F64E60',
+              light: '#E4E6EF',
+              dark: '#181C32',
+            },
+            light: {
+              white: '#ffffff',
+              primary: '#E1F0FF',
+              secondary: '#EBEDF3',
+              success: '#C9F7F5',
+              info: '#EEE5FF',
+              warning: '#FFF4DE',
+              danger: '#FFE2E5',
+              light: '#F3F6F9',
+              dark: '#D6D6E0',
+            },
+            inverse: {
+              white: '#ffffff',
+              primary: '#ffffff',
+              secondary: '#3F4254',
+              success: '#ffffff',
+              info: '#ffffff',
+              warning: '#ffffff',
+              danger: '#ffffff',
+              light: '#464E5F',
+              dark: '#ffffff',
+            },
+          },
+          gray: {
+            'gray-100': '#F3F6F9',
+            'gray-200': '#EBEDF3',
+            'gray-300': '#E4E6EF',
+            'gray-400': '#D1D3E0',
+            'gray-500': '#B5B5C3',
+            'gray-600': '#7E8299',
+            'gray-700': '#5E6278',
+            'gray-800': '#3F4254',
+            'gray-900': '#181C32',
+          },
+        },
+        'font-family': 'Poppins',
+      };
+    </script>
+    <!--end::Global Config-->
+    <!--begin::Global Theme Bundle(used by all pages)-->
+    <script src="assets/plugins/global/plugins.bundle.js"></script>
+    <script src="assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+    <script src="assets/js/scripts.bundle.js"></script>
+    <script>
+      var markingErrorField = function (response) {
+        const errorFields = response.responseJSON.errors;
+
+        if (!errorFields) {
+          $('#errMessage').html('<div class="alert alert-danger">' + response.responseJSON.message + '</div>');
+          mes = response.responseJSON.message;
+          return mes;
+        }
+
+        var $field, error;
+        for (var i = 0, length = errorFields.length; i < length; i++) {
+          error = errorFields[i];
+          $field = $('#' + error['field']);
+
+          if ($field && $field.length > 0) {
+            $field.siblings('.error-message').remove();
+            $field.after('<span class="error-message text-small text-danger">' + error.defaultMessage + '</span>');
+          }
+        }
+      };
+
+      jQuery(document).ready(function () {
+        jQuery('#userAddForm').on('click', '#formSubmitBtn', function (e) {
+          var token = $("meta[name='_csrf']").attr('content');
+          var header = $("meta[name='_csrf_header']").attr('content');
+
+          var param = {
+            loginId: $('#loginId').val(),
+            nickName: $('#nickName').val(),
+            loginPw: $('#loginPw').val(),
+          };
+
+          jQuery.ajax({
+            url: '/sign-up2',
+            type: 'POST',
+            dataType: 'json',
+            data: param,
+            beforeSend: function (xhr) {
+              xhr.setRequestHeader(header, token);
+              $('.wrap-loading').removeClass('display-none');
+            },
+            timeout: 100000,
+            success: function (res) {
+              alert('회원가입이 완료되었습니다!');
+              $('.wrap-loading').addClass('display-none');
+              $(location).attr('href', '/loginPage');
+            },
+            error: function (res) {
+              markingErrorField(res);
+            },
+          });
+        });
+      });
+    </script>
+    <!--end::Global Theme Bundle-->
+    <!--begin::Page Scripts(used by this page)-->
+    <!--<script src="assets/js/pages/custom/login/login-3.js"></script>-->
+    <!--end::Page Scripts-->
+  </body>
+  <!--end::Body-->
+</html>

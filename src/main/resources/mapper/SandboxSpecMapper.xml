@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mzc.data.portal.mapper.SandboxSpecMapper">
+    <select id="findSandboxSpecs" resultType="mzc.data.portal.dto.SandboxSpecData">
+        SELECT
+            sandbox_spec_idx as sandboxSpecIdx,
+            sandbox_type as sandboxType,
+            sandbox_os as sandboxOs,
+            instance_type as instanceType,
+            sandbox_cpu as sandboxCpu,
+            sandbox_memory as sandboxMemory,
+            sandbox_network_description as sandboxNetworkDescription,
+            sandbox_price as sandboxPrice,
+            sandbox_spec_status as sandboxSpecStatus,
+            sandbox_spec_created_at as sandboxSpecCreatedAt,
+            sandbox_spec_updated_at as sandboxSpecUpdatedAt
+        FROM
+            d2p.sandbox_spec
+        WHERE
+            sandbox_type = #{spec}
+    </select>
+    <select id="getSandboxSpecInfo" resultType="mzc.data.portal.dto.SandboxSpecData$GetSandboxSpecInfoParam">
+        SELECT
+            sandbox_spec_idx as sandboxSpecIdx,
+            sandbox_type as sandboxType,
+            sandbox_os as sandboxOs,
+            instance_type as instanceType,
+            sandbox_cpu as sandboxCpu,
+            sandbox_memory as sandboxMemory,
+            sandbox_network_description as sandboxNetworkDescription,
+            sandbox_price as sandboxPrice,
+            sandbox_spec_status as sandboxSpecStatus,
+            sandbox_spec_created_at as sandboxSpecCreatedAt,
+            sandbox_spec_updated_at as sandboxSpecUpdatedAt
+        FROM
+            d2p.sandbox_spec
+        where
+            sandbox_spec_idx = #{sandboxSpecIdx}
+    </select>
+</mapper>

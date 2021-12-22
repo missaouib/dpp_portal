@@ -1,0 +1,47 @@
+.datatable.datatable-default
+  > .datatable-table
+  > .datatable-body
+  .datatable-row
+  > .datatable-cell,
+.datatable.datatable-default
+  > .datatable-table
+  > .datatable-foot
+  .datatable-row
+  > .datatable-cell,
+.datatable.datatable-default
+  > .datatable-table
+  > .datatable-head
+  .datatable-row
+  > .datatable-cell {
+  vertical-align: middle;
+  padding: 1rem 1rem;
+  font-size: 1.25rem;
+}
+.aside-menu .menu-nav > .menu-item > .menu-link .menu-text {
+  font-weight: 400;
+  font-size: 1.3rem;
+  text-transform: initial;
+}
+btn-group-sm > .btn,
+.btn-sm {
+  padding: 0.55rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.35;
+  border-radius: 0.42rem;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "MZC Font Medium";
+  src: url("/assets/css/font/MZC_Font/NotoSansCJKkr-Medium.otf");
+}
+@font-face {
+  font-family: "MZC Font Bold";
+  src: url("/assets/css/font/MZC_Font/NotoSansCJKkr-Bold.otf");
+}
+@font-face {
+  font-family: "MZC Font DemiLight";
+  src: url("/assets/css/font/MZC_Font/NotoSansCJKkr-DemiLight.otf");
+}
+body {
+  font-family: "MZC Font DemiLight", serif;
+}

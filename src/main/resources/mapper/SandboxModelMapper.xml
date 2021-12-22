@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mzc.data.portal.mapper.SandboxModelMapper">
+    <insert id="addSandboxModel">
+        INSERT INTO
+            d2p.sandbox_models
+        (
+            sandbox_model_name
+        , sandbox_spec_idx
+        , sandbox_image_idx
+        , sandbox_model_description
+        , sandbox_model_tags
+        , sandbox_model_type
+        , sandbox_model_created_user_idx
+        , sandbox_model_created_at
+        )
+        VALUES(#{sandboxModelName}
+              , #{sandboxSpecIdx}
+              , #{sandboxImageIdx}
+              , #{sandboxModelDescription}
+              , #{sandboxModelTags}
+              , #{sandboxModelType}
+              , #{sandboxModelCreatedUserIdx}
+              , NOW())
+    </insert>
+    <select id="findSandboxModels" resultType="mzc.data.portal.dto.SandboxModelData">
+        SELECT
+            sandbox_model_idx as sandboxModelIdx,
+            sandbox_model_name as sandboxModelName,
+            sandbox_spec_idx as sandboxSpecIdx,
+            sandbox_image_idx as sandboxImageIdx,
+            sandbox_model_description as sandboxModelDescription,
+            sandbox_model_tags as sandboxModelTags,
+            sandbox_model_status as sandboxModelStatus,
+            sandbox_model_created_user_idx as sandboxModelCreatedUserIdx,
+            sandbox_model_created_at as sandboxModelCreatedAt,
+            sandbox_model_updated_user_idx as sandboxModelUpdatedUserIdx,
+            sandbox_model_updated_at as sandboxModelUpdatedAt
+        FROM
+            d2p.sandbox_models
+    </select>
+    <select id="getSandboxModelInfo" resultType="mzc.data.portal.dto.SandboxModelData$GetSandboxModelInfoParam">
+        SELECT
+            sandbox_model_idx as sandboxModelIdx,
+            sandbox_model_name as sandboxModelName,
+            sandbox_spec_idx as sandboxSpecIdx,
+            sandbox_image_idx as sandboxImageIdx,
+            sandbox_model_description as sandboxModelDescription,
+            sandbox_model_tags as sandboxModelTags,
+            sandbox_model_status as sandboxModelStatus,
+            sandbox_model_created_user_idx as sandboxModelCreatedUserIdx,
+            sandbox_model_created_at as sandboxModelCreatedAt,
+            sandbox_model_updated_user_idx as sandboxModelUpdatedUserIdx,
+            sandbox_model_updated_at as sandboxModelUpdatedAt
+        FROM
+            d2p.sandbox_models
+        WHERE
+            sandbox_model_idx = #{sandboxModelIdx}
+    </select>
+    <update id="updateSandboxModel">
+        UPDATE
+            d2p.sandbox_models
+        SET
+            sandbox_model_description = #{sandboxModelDescription},
+            sandbox_model_status = #{sandboxModelStatus},
+            sandbox_model_updated_user_idx = #{sandboxModelUpdatedUserIdx},
+            sandbox_model_updated_at = NOW()
+        WHERE
+            sandbox_model_idx = #{sandboxModelIdx}
+    </update>
+
+    <select id="getSandboxModelDetailSpecImage" resultType="mzc.data.portal.dto.SandboxModelData">
+        SELECT
+            model.sandbox_model_idx AS sandboxModelIdx
+             , model.sandbox_model_name AS sandboxModelName
+             , model.sandbox_model_description AS sandboxModelDescription
+             , model.sandbox_model_tags AS sandboxModelTags
+             , model.sandbox_model_status AS sandboxModelStatus
+             , model.sandbox_model_type AS sandboxModelType
+
+             , spec.sandbox_type AS sandboxSpecType
+             , spec.sandbox_os AS sandboxSpecOs
+             , spec.instance_type AS sandboxSpecInstanceType
+             , spec.sandbox_cpu AS sandboxSpecCpu
+             , spec.sandbox_memory AS sandboxSpecMemory
+             , spec.sandbox_network_description AS sandboxSpecNetworkDescription
+             , spec.sandbox_price AS sandboxSpecPrice
+             , spec.sandbox_spec_status AS sandboxSpecStatus
+
+             , image.sandbox_type AS sandboxImageType
+             , image.sandbox_os AS sandboxImageOs
+             , image.cloud_image_id AS cloudImageId
+             , image.sandbox_image_description AS sandboxImageDescription
+             , image.sandbox_image_tags AS sandboxImageTags
+             , image.sandbox_image_status AS sandboxImageStatus
+             , image.sandbox_image_volume AS sandboxImageVolume
+
+
+        FROM
+            sandbox_models AS model
+                LEFT JOIN sandbox_spec AS spec
+                          ON model.sandbox_spec_idx = spec.sandbox_spec_idx
+                LEFT JOIN sandbox_images AS image
+                          ON model.sandbox_image_idx = image.sandbox_image_idx
+        WHERE 1=1
+          AND sandbox_model_idx = #{idx}
+    </select>
+</mapper>

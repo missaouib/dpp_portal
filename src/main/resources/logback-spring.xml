@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <!-- to allow the queue to flush on exit -->
+    <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+
+    <!-- Timestamp used into the Log Stream Name -->
+    <timestamp key="timestamp" datePattern="yyyy-MM-dd HH-mm-ss-SSS"/>
+
+    <!-- CloudWatch Appender -->
+    <!-- IAM Role 에 필요한 권한
+    {
+      "Statement": [
+        {
+          "Action": [
+            "logs:CreateLogGroup",
+            "logs:CreateLogStream",
+            "logs:PutLogEvents"
+          ],
+          "Effect": "Allow",
+          "Resource": "arn:aws:logs:*:*:*"
+        }
+      ]
+    } -->
+    <appender name="ASYNC_AWS_LOGS" class="ca.pjer.logback.AwsLogsAppender">
+        <!-- Send only WARN and above -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <springProfile name="dev">
+                <level>INFO</level>
+            </springProfile>
+            <springProfile name="prod">
+                <level>ERROR</level>
+            </springProfile>
+        </filter>
+        <!-- Nice layout pattern -->
+        <layout>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%-5p] [%F]%M\(%L\) : %m%n</pattern>
+        </layout>
+
+        <!-- Hardcoded Log Group Name -->
+        <!-- Timestamped Log Stream Name -->
+        <springProfile name="local">
+            <logGroupName>/demo/dev</logGroupName>
+        </springProfile>
+        <springProfile name="dev">
+            <logGroupName>/demo/dev</logGroupName>
+        </springProfile>
+        <springProfile name="prd">
+            <logGroupName>/demo/prd</logGroupName>
+        </springProfile>
+
+        <logStreamName>dsc-bdp-${timestamp}</logStreamName>
+
+        <!-- Hardcoded AWS region -->
+        <!-- So even when running inside an AWS instance in us-west-1, logs will go to us-west-2 -->
+        <logRegion>ap-northeast-2</logRegion>
+        <!-- Maximum number of events in each batch (50 is the default) -->
+        <!-- will flush when the event queue has 50 elements, even if still in quiet time (see maxFlushTimeMillis) -->
+        <maxBatchLogEvents>50</maxBatchLogEvents>
+        <!-- Maximum quiet time in millisecond (0 is the default) -->
+        <!-- will flush when met, even if the batch size is not met (see maxBatchLogEvents) -->
+        <maxFlushTimeMillis>30000</maxFlushTimeMillis>
+        <!-- Maximum block time in millisecond (5000 is the default) -->
+        <!-- when > 0: this is the maximum time the logging thread will wait for the logger, -->
+        <!-- when == 0: the logging thread will never wait for the logger, discarding events while the queue is full -->
+        <maxBlockTimeMillis>5000</maxBlockTimeMillis>
+    </appender>
+
+    <!-- TRACE > DEBUG > INFO > WARN > ERROR, 대소문자 구분 안함 -->
+    <!-- profile 을 읽어서 appender 을 설정할수 있다.(phase 별 파일을 안만들어도 되는 좋은 기능) -->
+    <springProfile name="local">
+        <root level="DEBUG">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+    <springProfile name="dev">
+        <root level="INFO">
+            <appender-ref ref="ASYNC_AWS_LOGS"/>
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+    <springProfile name="prd">
+        <root level="ERROR">
+            <appender-ref ref="ASYNC_AWS_LOGS"/>
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+</configuration>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>MEGAZONE CLOUD</title>
+    <!-- config fragment 사용 -->
+    <th:block th:replace="fragments/common/header-common :: headerCommon"></th:block>
+    <!-- config fragment 사용 -->
+
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+</head>
+<body id="kt_body"
+      class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+    <th:block th:replace="fragments/common/header-mobile :: headerMobile"></th:block>
+
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Page-->
+        <div class="d-flex flex-row flex-column-fluid page">
+            <div th:replace="fragments/common/nav-left :: navLeft"></div>
+
+            <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+
+                <div th:replace="fragments/common/header :: header"></div>
+
+                <!--begin::Content-->
+                <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+
+                    <!--begin::Subheader-->
+                    <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+                        <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                            <!--begin::Info-->
+                            <div class="d-flex align-items-center flex-wrap mr-2">
+                                <!--begin::Page Title-->
+                                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">DPP Template Subhead</h5>
+                                <!--end::Page Title-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Subheader-->
+                    <!--begin::Entry-->
+                    <div class="d-flex flex-column-fluid">
+                        <!--begin::Container-->
+                        <div class="container">
+                            <!--begin::Card-->
+                            <div class="card card-custom">
+                                <div class="card-header flex-wrap border-0 pt-6 pb-0">
+                                    <div class="card-title">
+                                        <h3>Template</h3>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                </div>
+                            </div>
+                            <!--end::Card-->
+                        </div>
+                        <!--end::Container-->
+                    </div>
+                    <!--end::Entry-->
+                </div>
+                <!--end::Content-->
+
+                <div th:replace="fragments/common/footer :: footer"></div>
+
+            </div>
+
+        </div>
+    </div>
+    <div th:replace="fragments/admin/panel :: panel"></div>
+
+    <!-- footer fragment 사용 -->
+    <th:block th:replace="fragments/common/footer-common :: footerCommon"></th:block>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mzc.data.portal.mapper.CloudSandboxInstanceMapper">
+    <select id="get" resultType="mzc.data.portal.dto.CloudSandboxInstanceData">
+        SELECT
+            idx AS idx
+             , instance_uuid AS instanceUuid
+             , instance_id AS instanceId
+             , instance_type AS instanceType
+             , connection_private_url AS connectionPrivateUrl
+             , connection_public_url AS connectionPublicUrl
+             , status AS status
+             , started_at AS startedAt
+             , stopped_at AS stoppedAt
+             , terminated_at AS terminatedAt
+             , updated_at AS updatedAt
+        FROM
+            d2p.cloud_sandbox_instance
+        WHERE 1=1
+          AND idx = #{idx}
+
+    </select>
+    <insert id="add">
+        INSERT INTO
+            d2p.cloud_sandbox_instance
+        (
+            instance_uuid,
+            instance_id,
+            instance_type,
+            status,
+            created_at
+        )
+        VALUES
+        (
+            #{instanceUuid},
+            #{instanceId},
+            #{sandboxType},
+            #{cloudSandboxInstanceStatus},
+            NOW()
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE
+        d2p.cloud_sandbox_instance
+        SET
+        updated_at = now()
+        , status = #{cloudSandboxInstanceStatus}
+        <if test="connectionPrivateUrl != null and connectionPrivateUrl != ''">
+            , connection_private_url = #{connectionPrivateUrl}
+        </if>
+        <if test="connectionPublicUrl != null and connectionPublicUrl != ''">
+            , connection_public_url = #{connectionPublicUrl}
+        </if>
+        <if test="isRunning">
+            , started_at = #{startedAt}
+        </if>
+        <if test="isStopped">
+            , stopped_at = now()
+        </if>
+        <if test="isTerminated">
+            , terminated_at = now()
+        </if>
+        WHERE
+        idx = #{idx}
+    </update>
+</mapper>

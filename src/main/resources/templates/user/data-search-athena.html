@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<!--
+Template Name: Metronic - Bootstrap 4 HTML, React, Angular 11 & VueJS Admin Dashboard Theme
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: https://1.envato.market/EA4JP
+Renew Support: https://1.envato.market/EA4JP
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<!--begin::Head-->
+<head>
+    <base href="../../">
+    <meta charset="utf-8"/>
+    <!--token, header-->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <title>MEGAZONE CLOUD</title>
+    <meta name="description" content="Aside light theme example"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="canonical" href="https://keenthemes.com/metronic"/>
+    <!--begin::Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
+    <!--end::Fonts-->
+    <!--begin::Page Vendors Styles(used by this page)-->
+    <link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+    <!--end::Page Vendors Styles-->
+    <!--begin::Global Theme Styles(used by all pages)-->
+    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css"/>
+    <!--end::Global Theme Styles-->
+    <!--begin::Layout Themes(used by all pages)-->
+    <link href="assets/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/themes/layout/brand/light.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/themes/layout/aside/light.css" rel="stylesheet" type="text/css"/>
+    <!--end::Layout Themes-->
+    <link rel="icon" href="https://imgnew.megazone.com/2019/08/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="icon" href="https://imgnew.megazone.com/2019/08/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="https://imgnew.megazone.com/2019/08/favicon-60.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://imgnew.megazone.com/2019/08/favicon-76.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://imgnew.megazone.com/2019/08/favicon-120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://imgnew.megazone.com/2019/08/favicon-152.png">
+</head>
+<!--end::Head-->
+<style type="text/css" media="screen">
+    #editor {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    li {
+        list-style-type: none;
+    }
+</style>
+<!--begin::Body-->
+<body id="kt_body"
+      class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+<!--begin::Main-->
+<!--begin::Header Mobile-->
+<div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
+    <!--begin::Logo-->
+    <a href="#">
+        <h3>AWS S3</h3>
+        <img alt="Logo" src="assets/media/logos/logo-dark.png"/>
+    </a>
+    <!--end::Logo-->
+    <!--begin::Toolbar-->
+    <div class="d-flex align-items-center">
+        <!--begin::Aside Mobile Toggle-->
+        <button class="btn p-0 burger-icon burger-icon-left" id="kt_aside_mobile_toggle">
+            <span></span>
+        </button>
+        <!--end::Aside Mobile Toggle-->
+        <!--begin::Header Menu Mobile Toggle-->
+        <button class="btn p-0 burger-icon ml-4" id="kt_header_mobile_toggle">
+            <span></span>
+        </button>
+        <!--end::Header Menu Mobile Toggle-->
+        <!--begin::Topbar Mobile Toggle-->
+        <button class="btn btn-hover-text-primary p-0 ml-2" id="kt_header_mobile_topbar_toggle">
+					<span class="svg-icon svg-icon-xl">
+						<!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                             height="24px" viewBox="0 0 24 24" version="1.1">
+							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								<polygon points="0 0 24 0 24 24 0 24"/>
+								<path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+                                      fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+								<path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
+                                      fill="#000000" fill-rule="nonzero"/>
+							</g>
+						</svg>
+                        <!--end::Svg Icon-->
+					</span>
+        </button>
+        <!--end::Topbar Mobile Toggle-->
+    </div>
+    <!--end::Toolbar-->
+</div>
+<!--end::Header Mobile-->
+
+<div class="d-flex flex-column flex-root">
+    <!--begin::Page-->
+    <div class="d-flex flex-row flex-column-fluid page">
+        <!--begin::Aside-->
+        <div th:replace="fragments/user/nav-left :: navLeft"></div>
+        <!--end::Aside-->
+        <!--begin::Wrapper-->
+        <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+            <!--begin::Header-->
+            <div th:replace="fragments/user/header :: navHeader"></div>
+            <!--end::Header-->
+            <!--begin::Content-->
+            <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                <!--begin::Entry-->
+                <div class="d-flex flex-column-fluid">
+                    <!--begin::Container-->
+                    <div class="container">
+                        <!--begin::Card-->
+                        <!--begin::Page Layout-->
+                        <div class="d-flex flex-row">
+                            <!--begin::Aside-->
+                            <div class="flex-row-auto offcanvas-mobile w-300px w-xl-325px" id="kt_profile_aside">
+                                <!--begin::Forms Widget 15-->
+                                <div class="card card-custom card-stretch">
+                                    <div class="card-header">
+                                        <div class="card-title">
+                                            <h3 class="card-label">데이터베이스</h3>
+                                        </div>
+                                    </div>
+                                    <!--begin::Body-->
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label>데이터베이스 선택</label>
+                                            <div></div>
+                                            <select class="custom-select form-control" name="database-list"
+                                                    id="database-list">
+                                                <option selected value="">데이터베이스 선택</option>
+                                                <option th:each="database : ${databases}"
+                                                        th:value="${database.databaseName}"
+                                                        th:text="${database.databaseName}"></option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group d-none table-from-group">
+                                            <label>테이블 선택</label>
+                                            <button id="preview_btn"
+                                                    class="btn btn-sm btn-success py-1">미리보기
+                                            </button>
+                                            <div></div>
+                                            <select class="custom-select form-control" name="table-list"
+                                                    id="table-list">
+                                            </select>
+                                        </div>
+                                        <div id="database-tree" class="tree-demo">
+                                        </div>
+                                    </div>
+                                    <!--end::Body-->
+                                </div>
+                                <!--end::Forms Widget 15-->
+                            </div>
+                            <!--end::Aside-->
+                            <!--begin::Layout-->
+                            <div class="flex-row-fluid ml-lg-8">
+                                <!--begin::Head-->
+                                <div class="card card-custom gutter-b">
+                                    <!--begin::Body-->
+                                    <div class="card-body d-flex align-items-center justify-content-between flex-wrap py-3">
+                                        <!--begin::Info-->
+                                        <div class="d-flex align-items-center mr-2 py-2">
+                                            <!--begin::Navigation-->
+                                            <div class="d-flex mr-3">
+                                                <!--begin::Navi-->
+                                                <div class="navi navi-hover navi-active navi-link-rounded navi-bold d-flex flex-row">
+                                                    <!--begin::Item-->
+                                                    <div class="navi-item mr-2">
+                                                        <button id="execute_btn"
+                                                                class="btn btn-sm btn-success">
+                                                            <i class="flaticon2-arrow"></i> 실행
+                                                        </button>
+                                                        <button onclick="addDataSearchInfo()" id="addDataSearchInfoSave" class="btn btn-sm btn-info">
+                                                            <i class="la la-save"></i> 저장
+                                                        </button>
+                                                        <!--<button id="queryLog_btn" onclick="ShowHide(2)" class="btn btn-sm btn-success">Query Log</button>-->
+                                                    </div>
+                                                    <!--end::Item-->
+                                                </div>
+                                                <!--end::Navi-->
+                                            </div>
+                                            <!--end::Navigation-->
+                                        </div>
+                                        <!--end::Info-->
+                                        <!--begin::Users-->
+                                        <div class="symbol-group symbol-hover py-2">
+                                            <button id="querySaveView_btn" class="btn btn-sm btn-success mr-2" onclick="logListOpen('save')"><i class="la la-file"></i>저장된 쿼리</button>
+                                            <button id="queryLog_btn" class="btn btn-sm btn-primary" onclick="logListOpen('log')"><i class="la la-save"></i>쿼리 로그</button>
+                                        </div>
+                                        <!--end::Users-->
+                                    </div>
+                                    <!--end::Body-->
+                                </div>
+                                <!--end::Head-->
+                                <!--begin::Section-->
+                                <!--begin::Engage Widget 13-->
+                                <!--begin::Card-->
+                                <div class="card card-custom gutter-b">
+                                    <!--begin::Card Body-->
+                                    <div class="card-body d-flex rounded p-12 flex-column flex-md-row flex-lg-column flex-xxl-row overlay overlay-block"
+                                         style="min-height: 300px">
+                                        <textarea name="dataSearchQuery" id="dataSearchQuery" class="d-none"></textarea>
+                                        <div id="editor"></div>
+                                        <div id="loading-overlay" class="overlay-layer rounded bg-primary-o-20"
+                                             style="display: none">
+                                            <div class="spinner spinner-primary"></div>
+                                        </div>
+                                    </div>
+                                    <!--end::Card Body-->
+                                </div>
+                                <!--end::Card-->
+                                <!--end::Engage Widget 13-->
+                                <!--end::Section-->
+                                <!--begin::Section-->
+                                <!--begin::Advance Table Widget 10-->
+                                <div class="card card-custom" >
+                                    <!--begin::Header-->
+                                    <div class="card-header border-0 py-5">
+                                        <h3 class="card-title align-items-start flex-column">
+                                            <span class="card-label font-weight-bolder text-dark">결과</span>
+                                            <span class="text-muted mt-3 font-weight-bold font-size-sm">최대 100 행의 결과가 보여집니다.</span>
+                                        </h3>
+                                    </div>
+                                    <!--end::Header-->
+                                    <!--begin::Body-->
+                                    <div class="card-body py-0">
+                                        <!--<div class="card-body py-0" data-scroll="true" data-height="200">-->
+                                        <!--begin::Table-->
+                                        <div class="table-responsive">
+                                            <table class="table table-head-custom table-vertical-center"
+                                                   id="kt_advance_table_widget_4" style="display: block; max-height: 300px;">
+                                                <thead class="datatable-head">
+                                                <tr>
+                                                </tr>
+                                                </thead>
+                                                <!--<tbody data-scroll="true" data-height="200" >-->
+                                                <tbody class="datatable-body" style="max-height: 200px; overflow: auto;">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!--end::Table-->
+                                    </div>
+                                    <!--end::Body-->
+                                </div>
+                                <!--end::Advance Table Widget 10-->
+                                <!--end::Section-->
+                            </div>
+                        </div>
+                        <!--end::Inbox-->
+                        <div class="d-flex flex-row">
+                            <div class="flex-row-fluid mt-lg-8">
+                                <div class="card card-custom gutter-b" id="saveListCard">
+                                    <!--begin::Card Body-->
+                                    <div class="card-header border-0 py-5">
+                                        <h3 class="card-title align-items-start flex-column">
+                                            <span class="card-label font-weight-bolder text-dark">저장 된 쿼리</span>
+                                            <span class="text-muted mt-3 font-weight-bold font-size-sm">사용자가 저장한 쿼리가 보여집니다.</span>
+                                        </h3>
+                                    </div>
+                                    <!--end::Header-->
+                                    <!--begin::Body-->
+                                    <div class="card-body py-0">
+                                        <!--begin::Table-->
+                                        <div class="table-responsive">
+                                            <table class="table table-head-custom table-vertical-center" id="querySaveTable">
+                                                <thead>
+                                                    <th>No.</th>
+                                                    <th>이름</th>
+                                                    <th>Query</th>
+                                                    <th>날짜</th>
+                                                    <th></th>
+                                                </thead>
+                                                <tbody>
+                                                    <!--<tr>
+                                                    <td>1</td>
+                                                    <td>july</td>
+                                                    <td>select * from test limit 100;</td>
+                                                    <td>2021.04.19</td>
+                                                    <td>-->
+                                                    <tr th:each="item : ${dataSearch}">
+                                                        <td th:text="${item.dataSearchIdx}"></td>
+                                                        <td th:text="${item.userId}"></td>
+                                                        <td th:text="${item.dataSearchQuery}"></td>
+                                                        <td th:text="${#temporals.format(item.dataSearchCreatedAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                                                        <td><button type="button" class="btn btn-sm btn-danger" th:onclick="|deleteDataSearchInfo('${item.dataSearchIdx}')|">삭제</button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!--end::Table-->
+                                    </div>
+                                    <!--end::Card Body-->
+                                </div>
+                            </div>
+                        </div>
+                        <!--end::Card-->
+
+
+                        <!--test::QueryLog-->
+
+                        <div class="d-flex flex-row">
+                            <div class="flex-row-fluid mt-lg-8">
+                                <div class="card card-custom gutter-b d-none" id="logListCard" >
+                                    <!--begin::Card Body-->
+                                    <div class="card-header border-0 py-5">
+                                        <h3 class="card-title align-items-start flex-column">
+                                            <span class="card-label font-weight-bolder text-dark">쿼리 로그</span>
+                                            <span class="text-muted mt-3 font-weight-bold font-size-sm">저장 된 쿼리 로그가 보여집니다.</span>
+                                        </h3>
+                                    </div>
+                                    <!--end::Header-->
+                                    <!--begin::Body-->
+                                    <div class="card-body py-0">
+                                        <!--begin::Table-->
+                                        <div class="table-responsive">
+                                            <table class="table table-head-custom table-vertical-center" id="queryLogTable">
+                                                <thead>
+                                                <th>No.</th>
+                                                <th>날짜</th>
+                                                <th>Query</th>
+                                                </thead>
+                                                <tbody>
+                                                <tr th:each="item : ${queryLog}">
+                                                    <td th:text="${item.queryIdx}"></td>
+                                                    <td th:text="${#temporals.format(item.queryCreatedAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                                                    <td th:text="${item.dataSearchQuery}"></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!--end::Table-->
+                                    </div>
+                                    <!--end::Card Body-->
+                                </div>
+                            </div>
+                        </div>
+                       <!-- end::test-->
+
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Entry-->
+            </div>
+            <!--end::Content-->
+            <!--begin::Footer-->
+            <footer th:replace="fragments/user/footer :: footer"/>
+            <!--end::Footer-->
+        </div>
+        <!--end::Wrapper-->
+    </div>
+    <!--end::Page-->
+</div>
+<!--end::Main-->
+<!-- begin::User Panel-->
+<div th:replace="fragments/user/panel :: panel"></div>
+<!-- end::User Panel-->
+
+<!--begin::Scrolltop-->
+<div id="kt_scrolltop" class="scrolltop">
+			<span class="svg-icon">
+				<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Up-2.svg-->
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                     height="24px" viewBox="0 0 24 24" version="1.1">
+					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						<polygon points="0 0 24 0 24 24 0 24"/>
+						<rect fill="#000000" opacity="0.3" x="11" y="10" width="2" height="10" rx="1"/>
+						<path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z"
+                              fill="#000000" fill-rule="nonzero"/>
+					</g>
+				</svg>
+                <!--end::Svg Icon-->
+			</span>
+</div>
+<!--begin::Global Theme Bundle(used by all pages)-->
+<script src="assets/plugins/global/plugins.bundle.js"></script>
+<script src="assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+<script src="assets/js/scripts.bundle.js"></script>
+
+<script src="assets/js/portal/common.js"></script>
+<script src="assets/js/portal/data-search-athena.js"></script>
+<!--end::Global Theme Bundle-->
+<!--begin::Page Vendors(used by this page)-->
+<script src="assets/js/pages/crud/ktdatatable/base/html-table.js"></script>
+
+<!--begin::Page Vendors(used by this page)-->
+<script src="assets/plugins/custom/jstree/jstree.bundle.js"></script>
+<!--end::Page Vendors-->
+<!--begin::Page Scripts(used by this page)-->
+<script src="assets/js/pages/features/miscellaneous/treeview.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/sqlserver");
+    editor.session.setMode("ace/mode/sql");
+    var textarea = $("#dataSearchQuery").hide();
+    editor.getSession().setValue(textarea.val());
+    editor.getSession().on('change', function (){
+        textarea.val(editor.getSession().getValue());
+    });
+/*
+    $(document).ready(function() {
+        $("#queryLog_btn").on("click", "", function () {
+            $("").addClass("");
+            $("").removeClass("");
+        });
+        $("#querySaveView_btn").off("click").on("click", function () {
+            $("").addClass("");
+            $("").removeClass("");
+        });
+    });*/
+
+
+    function logListOpen(type) {
+        if(type == "save") {
+            $("#saveListCard").removeClass("d-none");
+            $("#logListCard").addClass("d-none");
+        }
+
+        if(type == "log") {
+            $("#logListCard").removeClass("d-none");
+            $("#saveListCard").addClass("d-none");
+        }
+
+    }
+
+
+    function addDataSearchInfo() {
+        /*Spring Security로 받은 Auth값 전송하기 위한 파라미터*/
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+
+
+        var param = {
+            "dataSearchQuery" : $("#dataSearchQuery").val()
+            //"userId" : $("#userId").val()
+        }
+
+
+        jQuery.ajax({
+            url: "/data-search-athena"
+            , type: "POST"
+            , dataType: "json"
+            , data: param
+            , async : false
+            , beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, token);
+                $('.wrap-loading').removeClass('display-none');
+            }
+            , timeout: 100000
+            , success: function (res) {
+                alert("저장되었습니다!");
+                $('.wrap-loading').addClass('display-none');
+                $(location).attr('href', '/data-search-athena');
+            }
+            , error: function (res) {
+                //markingErrorField(res);
+                $.markingErrorField(res);
+            }
+        });
+    }
+
+    /*function deleteDataSearchInfo(obj) {
+        //document.getElementById("")
+        //$('#').attr('style', "display:none;");
+        var tr = $(obj).parent().parent();
+        tr.remove();
+    }*/
+
+    function deleteDataSearchInfo(dataSearchIdx) {
+        /*Spring Security로 받은 Auth값 전송하기 위한 파라미터*/
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+
+
+        var param = {
+            "dataSearchIdx" : dataSearchIdx
+        }
+
+        jQuery.ajax({
+            url: "/data-search-athena/delete"
+            , type: "POST"
+            , dataType: "json"
+            , data: param
+            , async : false
+            , beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, token);
+                $('.wrap-loading').removeClass('display-none');
+            }
+            , timeout: 100000
+            , success: function (res) {
+                alert("기록이 삭제되었습니다!");
+                $('.wrap-loading').addClass('display-none');
+                $(location).attr('href', '/data-search-athena');
+            }
+            , error: function (res) {
+                //markingErrorField(res);
+                $.markingErrorField(res);
+            }
+        });
+    }
+
+    var dataSearch = DataSearchAthena();
+
+</script>
+<!--end::Page Scripts-->
+</body>
+<!--end::Body-->
+</html>

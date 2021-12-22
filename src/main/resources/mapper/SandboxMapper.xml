@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mzc.data.portal.mapper.SandboxMapper">
+
+	<select id="findSandboxModels" resultType="mzc.data.portal.dto.SandboxData$Models">
+		SELECT
+		model.sandbox_model_idx as sandboxModelIdx
+		, model.sandbox_model_name as sandboxModelName
+		, model.sandbox_model_description as sandboxModelDescription
+		, model.sandbox_model_type as sandboxModelType
+		, image.sandbox_image_volume as sandboxImageVolume
+		, spec.instance_type as sandboxInstanceType
+		, spec.sandbox_type as sandboxType
+		, spec.sandbox_os as sandboxOs
+		, spec.sandbox_cpu as sandboxCpu
+		, spec.sandbox_memory as sandboxMemory
+		, spec.sandbox_price as sandboxPrice
+		FROM
+		sandbox_models model
+		LEFT JOIN sandbox_images image ON model.sandbox_model_idx = image.sandbox_image_idx
+		LEFT JOIN sandbox_spec spec ON model.sandbox_spec_idx = spec.sandbox_spec_idx
+		WHERE 1=1
+		AND model.sandbox_model_type = #{type}
+		AND model.sandbox_spec_idx = spec.sandbox_spec_idx
+		AND model.sandbox_model_status = 'ACTIVE'
+		<if test="type != null and type == 'SAGEMAKER'">
+			AND model.sandbox_image_idx = 0
+		</if>
+
+	</select>
+
+	<insert id="addSandbox">
+		INSERT INTO d2p.sandboxes
+		(
+			name
+		, sandbox_model_idx
+		, volume
+		, status
+		, description
+		, created_at
+		, created_user_idx
+		)
+		VALUES
+		(
+			#{name}
+		, #{sandboxModelIdx}
+		, #{volume}
+		, #{status}
+		, #{description}
+		, NOW()
+		, #{userIdx}
+		)
+	</insert>
+
+	<select id="findSandboxes" resultType="mzc.data.portal.dto.SandboxData">
+		SELECT
+			sd.idx as idx
+			 ,sd.name as name
+			 ,sd.sandbox_model_idx as sandboxModelIdx
+			 ,sd.volume as volume
+			 ,sd.cloud_instance_uuid as cloudInstanceUuid
+			 ,sd.status as status
+			 ,sd.description as description
+			 ,sd.created_at as createdAt
+			 ,sd.created_user_idx as createdUserIdx
+			 ,sd.updated_at as updatedAt
+			 ,sd.updated_user_idx as updatedUserIdx
+			 ,sd.auto_stop_yn as autoStopYN
+			 ,csi.instance_id as cloudInstanceId
+			 ,csi.connection_private_url as cloudConnectionPrivateUrl
+			 ,csi.connection_public_url as cloudConnectionPublicUrl
+			 ,csi.status as cloudStatus
+			 ,csi.started_at as startedAt
+			 ,csi.stopped_at as stoppedAt
+			 ,csi.created_at as cloudCreatedAt
+			 ,csi.updated_at as cloudUpdatedAt
+		FROM d2p.sandboxes sd
+				 LEFT JOIN d2p.cloud_sandbox_instance csi
+						   ON sd.cloud_instance_uuid = csi.instance_uuid
+	</select>
+
+	<update id="terminateSandbox">
+		UPDATE
+			d2p.sandboxes
+		SET
+			status = #{status}
+		  , updated_at = NOW()
+		  , updated_user_idx = #{userIdx}
+		WHERE
+			idx = #{idx}
+	</update>
+
+	<select id="getSandbox" resultType="mzc.data.portal.dto.SandboxData">
+		SELECT
+			idx as idx
+			 ,name as name
+			 ,sandbox_model_idx as sandboxModelIdx
+			 ,volume as volume
+			 ,cloud_instance_uuid as cloudInstanceUuid
+			 ,status as status
+			 ,description as description
+			 ,created_at as createdAt
+			 ,created_user_idx as createdUserIdx
+			 ,updated_at as updatedAt
+			 ,updated_user_idx as updatedUserIdx
+		FROM
+			d2p.sandboxes
+		WHERE 1=1
+		  AND idx = #{idx}
+	</select>
+
+	<update id="updateSandbox">
+		UPDATE
+		d2p.sandboxes
+		SET
+		status = #{sandboxStatus}
+		, updated_user_idx = #{userIdx}
+		, updated_at = NOW()
+		<if test="instanceUuid != null and instanceUuid != ''">
+			, cloud_instance_uuid = #{instanceUuid}
+		</if>
+		WHERE 1=1
+		AND idx = #{idx}
+	</update>
+
+
+	<select id="findSandboxDetailCloudSandboxInstance" resultType="mzc.data.portal.dto.SandboxData">
+		SELECT
+			sandbox.idx as idx
+			 , sandbox.name as name
+			 , sandbox.sandbox_model_idx as sandboxModelIdx
+			 , sandbox.volume as volume
+			 , sandbox.cloud_instance_uuid as cloudInstanceUuid
+			 , sandbox.status as status
+			 , sandbox.description as description
+			 , sandbox.created_at as createdAt
+			 , sandbox.created_user_idx as createdUserIdx
+			 , sandbox.updated_at as updatedAt
+			 , sandbox.updated_user_idx as updatedUserIdx
+			 , cloud.idx AS cloudIdx
+			 , cloud.instance_id AS cloudInstanceId
+			 , cloud.status AS cloudStatus
+			 , cloud.connection_private_url AS cloudConnectionPrivateUrl
+			 , cloud.connection_public_url AS cloudConnectionPublicUrl
+		FROM
+			d2p.sandboxes AS sandbox
+				LEFT JOIN d2p.cloud_sandbox_instance AS cloud
+						  ON sandbox.cloud_instance_uuid = cloud.instance_uuid
+		WHERE 1=1
+		  AND sandbox.idx = #{idx}
+	</select>
+
+	<select id="findSandboxDetailCloudSandboxInstanceList" resultType="mzc.data.portal.dto.SandboxData">
+		SELECT
+			sandbox.idx AS idx,
+			sandbox.name AS name,
+			sandbox.volume AS volume,
+			sandbox.cloud_instance_uuid AS cloudInstanceUuid,
+			sandbox.description AS description,
+			sandbox.status AS status,
+			sandbox.created_at AS createdAt,
+			cloud.idx AS cloudIdx,
+			cloud.instance_id AS cloudInstanceId,
+			cloud.instance_type AS cloudInstanceType,
+			cloud.status AS cloudStatus,
+			model.sandbox_model_type as sandboxModelType
+		FROM
+			d2p.sandboxes AS sandbox
+				LEFT JOIN d2p.cloud_sandbox_instance AS cloud
+						  ON d2p.sandbox.cloud_instance_uuid = cloud.instance_uuid
+				LEFT JOIN d2p.sandbox_models AS model
+						  ON sandbox.sandbox_model_idx = model.sandbox_model_idx
+		WHERE 1=1
+	</select>
+
+	<select id="findCreatedSandboxDetailCloudSandboxInstanceList" resultType="mzc.data.portal.dto.SandboxData">
+		SELECT
+			sandbox.idx AS idx,
+			sandbox.name AS name,
+			sandbox.volume AS volume,
+			sandbox.cloud_instance_uuid AS cloudInstanceUuid,
+			sandbox.description AS description,
+			sandbox.status AS status,
+			sandbox.created_at AS createdAt,
+			cloud.idx AS cloudIdx,
+			cloud.instance_id AS cloudInstanceId,
+			cloud.instance_type AS cloudInstanceType,
+			cloud.status AS cloudStatus,
+			model.sandbox_model_type as sandboxModelType
+		FROM
+			d2p.sandboxes AS sandbox
+				LEFT JOIN d2p.cloud_sandbox_instance AS cloud
+						  ON d2p.sandbox.cloud_instance_uuid = cloud.instance_uuid
+				LEFT JOIN d2p.sandbox_models AS model
+						  ON sandbox.sandbox_model_idx = model.sandbox_model_idx
+		WHERE 1=1
+		  AND cloud.idx IS NOT NULL
+		  AND cloud.status != 'TERMINATED'
+			AND cloud.instance_type = #{sandboxType}
+	</select>
+
+	<update id="autoStopReset">
+		UPDATE
+			d2p.sandboxes
+		SET
+			auto_stop_yn = 0
+	</update>
+
+	<update id="autoStop">
+		UPDATE
+		d2p.sandboxes
+		SET
+		updated_user_idx = #{userId},
+		updated_at = NOW(),
+		auto_stop_yn = 1
+		WHERE 1=1
+		AND idx in
+		<foreach collection="idx" item="idx" index="index" separator="," open="(" close=")">
+			#{idx}
+		</foreach>
+	</update>
+
+	<select id="findUserSandboxByUserId" resultType="mzc.data.portal.dto.SandboxData">
+		SELECT
+			sd.idx as idx
+			 ,sd.name as name
+			 ,sd.sandbox_model_idx as sandboxModelIdx
+			 ,sd.volume as volume
+			 ,sd.cloud_instance_uuid as cloudInstanceUuid
+			 ,sd.status as status
+			 ,sd.description as description
+			 ,sd.created_at as createdAt
+			 ,sd.created_user_idx as createdUserIdx
+			 ,sd.updated_at as updatedAt
+			 ,sd.updated_user_idx as updatedUserIdx
+			 ,sd.auto_stop_yn as autoStopYN
+			 ,csi.instance_type as cloudInstanceType
+			 ,csi.instance_id as cloudInstanceId
+			 ,csi.connection_private_url as cloudConnectionPrivateUrl
+			 ,csi.connection_public_url as cloudConnectionPublicUrl
+			 ,csi.status as cloudStatus
+			 ,csi.started_at as startedAt
+			 ,csi.stopped_at as stoppedAt
+			 ,csi.created_at as cloudCreatedAt
+			 ,csi.updated_at as cloudUpdatedAt
+			 ,model.sandbox_model_type as sandboxModelType
+		FROM d2p.sandboxes sd
+				 LEFT JOIN d2p.cloud_sandbox_instance csi ON sd.cloud_instance_uuid = csi.instance_uuid
+				 LEFT JOIN d2p.sandbox_models model ON sd.sandbox_model_idx = model.sandbox_model_idx
+		WHERE 1=1
+		  AND created_user_idx = #{userId}
+	</select>
+
+	<select id="findSandboxByStatus" resultType="long">
+		SELECT COUNT(sandbox.idx)
+		FROM
+		d2p.sandboxes AS sandbox
+		LEFT JOIN d2p.cloud_sandbox_instance AS cloud
+		ON sandbox.cloud_instance_uuid = cloud.instance_uuid
+		WHERE 1=1
+		AND sandbox.status = 'ACTIVE'
+		<if test="status == 'created'">
+			AND cloud.status != 'TERMINATED'
+		</if>
+		<if test="status == 'running'">
+			AND (cloud.status = 'STARTING'
+			OR cloud.status = 'RUNNING')
+		</if>
+		<if test="status == 'stopped'">
+			AND (cloud.status = 'STOPPING'
+			OR cloud.status = 'STOPPED')
+		</if>
+	</select>
+
+	<select id="findUserSandboxByStatus" resultType="long">
+		SELECT COUNT(sandbox.idx)
+		FROM
+		d2p.sandboxes AS sandbox
+		LEFT JOIN d2p.cloud_sandbox_instance AS cloud
+		ON sandbox.cloud_instance_uuid = cloud.instance_uuid
+		WHERE 1=1
+		AND sandbox.status = 'ACTIVE'
+		<if test="status == 'created'">
+			AND cloud.status != 'TERMINATED'
+		</if>
+		<if test="status == 'running'">
+			AND (cloud.status = 'STARTING'
+			OR cloud.status = 'RUNNING')
+		</if>
+		<if test="status == 'stopped'">
+			AND (cloud.status = 'STOPPING'
+			OR cloud.status = 'STOPPED')
+		</if>
+		AND created_user_idx = #{userId}
+	</select>
+
+</mapper>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mzc.data.portal.mapper.UserMapper">
+    <select id="findUser" resultType="mzc.data.portal.dto.UserData">
+        SELECT
+            idx as idx,
+            nickname as nickName,
+            login_id as loginId,
+            login_pw as loginPw,
+            user_status as userStatus,
+            user_grade as userGrade,
+            created_at as createdAt,
+            updated_at as updatedAt,
+            last_login_at as lastLoginAt,
+            password_error_count as pwErrCnt
+        FROM
+            d2p.users
+        WHERE 1=1
+          AND LOWER(login_id) = LOWER(#{loginId})
+    </select>
+
+    <update id="addPasswordErrorCnt">
+        UPDATE
+            d2p.users
+        SET
+            password_error_count = password_error_count + 1,
+            updated_at = NOW()
+        WHERE
+            LOWER(login_id) = LOWER(#{loginId})
+    </update>
+
+    <insert id="addUser">
+        INSERT INTO
+            d2p.users
+        (
+            login_id
+        , nickname
+        , login_pw
+        , user_status
+        , user_grade
+        , created_at
+        )
+        VALUES
+        (
+            LOWER(#{loginId})
+        , #{nickName}
+        , #{loginPw}
+        , #{userStatus}
+        , #{userGrade}
+        , NOW()
+        )
+    </insert>
+
+    <select id="userList" resultType="mzc.data.portal.dto.UserData">
+        SELECT
+            idx as idx,
+            login_id as loginId,
+            login_pw as loginPw,
+            user_status as userStatus,
+            user_grade as userGrade,
+            created_at as createdAt,
+            updated_at as updatedAt,
+            last_login_at as lastLoginAt,
+            password_error_count as pwErrCnt
+        FROM
+            d2p.users
+        WHERE 1=1
+    </select>
+
+    <select id="getUser" resultType="mzc.data.portal.dto.UserData">
+        SELECT
+            idx as idx,
+            login_id as loginId,
+            nickname as nickName,
+            login_pw as loginPw,
+            user_status as userStatus,
+            user_grade as userGrade,
+            created_at as createdAt,
+            updated_at as updatedAt,
+            last_login_at as lastLoginAt,
+            password_error_count as pwErrCnt
+        FROM
+            d2p.users
+        WHERE 1=1
+          AND idx = #{idx}
+    </select>
+
+    <!--<update id="updateUser">
+        UPDATE
+            d2p.users
+        SET
+            user_grade = #{userGrade}
+            <if test="nickName != null and nickName != ''">
+            , nickname = #{nickName}
+            </if>
+            , user_status = #{userStatus}
+            <if test="loginPw != null and loginPw != ''">
+            , login_pw = #{loginPw}
+            , password_error_count = 0
+            </if>
+            , updated_at = NOW()
+        WHERE 1=1
+            AND idx = #{idx}
+    </update>-->
+
+    <update id= "updateUserPassword">
+        UPDATE
+            d2p.users
+        SET
+            login_pw = #{loginPw}
+          , password_error_count = 0
+          , updated_at = NOW()
+          , user_grade = #{userGrade}
+        WHERE 1=1
+          AND idx = #{idx}
+    </update>
+
+    <insert id="addPasswordLog">
+        INSERT INTO
+            d2p.user_password_logs
+        (
+            user_idx
+        , user_pw
+        , updated_at
+        )
+        VALUES
+        (
+            #{idx}
+        , #{loginPw}
+        , NOW()
+        )
+    </insert>
+
+    <select id="findDuplicatedPw" resultType="mzc.data.portal.dto.UserData$OldPassword">
+        SELECT
+            user_pw as loginPw
+        FROM
+            d2p.user_password_logs
+        WHERE 1=1
+          AND user_idx = #{idx}
+        ORDER BY
+            updated_at DESC
+            LIMIT 5
+    </select>
+
+    <update id="updateUserLastLogin">
+        UPDATE
+            d2p.users
+        SET
+            last_login_at = NOW()
+        WHERE 1=1
+          AND idx = #{idx}
+    </update>
+
+    <update id="resetPasswordErrorCount">
+        UPDATE
+            d2p.users
+        SET
+            password_error_count = 0
+        WHERE 1=1
+          AND idx = #{idx}
+    </update>
+
+    <update id="updateUser">
+        UPDATE
+            d2p.users
+        SET
+            user_grade = #{userGrade}
+          , user_status = #{userStatus}
+          , updated_at = NOW()
+        WHERE 1=1
+          AND idx = #{idx}
+    </update>
+
+</mapper>
