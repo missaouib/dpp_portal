@@ -76,6 +76,7 @@ public class SandboxController {
     @ResponseBody
     public SandboxData.SandboxDataCustomRes terminateSandbox(@Valid SandboxData.TerminateSandboxParam param) {
 
+
         sandboxService.terminateSandbox(param);
 
         return new SandboxData.SandboxDataCustomRes(ApiResponse.CREATED, null, null);

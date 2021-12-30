@@ -101,7 +101,7 @@ public class SagemakerServiceImpl extends BaseServiceImpl implements SagemakerSe
 
             //보안그룹
             String securityGroups = instanceConfig.getInstanceSecurityGroup();
-            String roleArn = "arn:aws:iam::142615785110:role/service-role/AmazonSageMaker-ExecutionRole-20210319T212361";
+            String roleArn = "arn:aws:iam::504042098950:role/AmazonSageMaker-ExecutionRole-20210319T212361";
 
             CreateNotebookInstanceRequest request = CreateNotebookInstanceRequest.builder()
                     .notebookInstanceName(notebookInstanceName) //instanceName은 사용자에게 입력받은 값으로 진행

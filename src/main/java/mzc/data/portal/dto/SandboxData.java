@@ -88,6 +88,8 @@ public class SandboxData {
         @Max(value = 1024, message = "샌드박스 용량은 1TB를 초과하실 수 없습니다")
         private int volume;
 
+        private String cloudInstanceUuid = "388a99ed-9486-4a46-aeb6-06eaf6c47675";
+
         @JsonIgnore
         private SandboxStatus status;
 

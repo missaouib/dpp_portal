@@ -16,9 +16,9 @@
 		, spec.sandbox_memory as sandboxMemory
 		, spec.sandbox_price as sandboxPrice
 		FROM
-		sandbox_models model
-		LEFT JOIN sandbox_images image ON model.sandbox_model_idx = image.sandbox_image_idx
-		LEFT JOIN sandbox_spec spec ON model.sandbox_spec_idx = spec.sandbox_spec_idx
+		d2p.sandbox_models model
+		LEFT JOIN d2p.sandbox_images image ON model.sandbox_model_idx = image.sandbox_image_idx
+		LEFT JOIN d2p.sandbox_spec spec ON model.sandbox_spec_idx = spec.sandbox_spec_idx
 		WHERE 1=1
 		AND model.sandbox_model_type = #{type}
 		AND model.sandbox_spec_idx = spec.sandbox_spec_idx
@@ -35,19 +35,23 @@
 			name
 		, sandbox_model_idx
 		, volume
+		, cloud_instance_uuid
 		, status
 		, description
 		, created_at
 		, created_user_idx
+		, updated_user_idx
 		)
 		VALUES
 		(
 			#{name}
 		, #{sandboxModelIdx}
 		, #{volume}
+		, #{cloudInstanceUuid}
 		, #{status}
 		, #{description}
 		, NOW()
+		, #{userIdx}
 		, #{userIdx}
 		)
 	</insert>
@@ -75,7 +79,7 @@
 			 ,csi.created_at as cloudCreatedAt
 			 ,csi.updated_at as cloudUpdatedAt
 		FROM d2p.sandboxes sd
-				 LEFT JOIN d2p.cloud_sandbox_instance csi
+				 LEFT JOIN d2p.cloud_sandbox_instances csi
 						   ON sd.cloud_instance_uuid = csi.instance_uuid
 	</select>
 
@@ -140,11 +144,10 @@
 			 , cloud.idx AS cloudIdx
 			 , cloud.instance_id AS cloudInstanceId
 			 , cloud.status AS cloudStatus
-			 , cloud.connection_private_url AS cloudConnectionPrivateUrl
-			 , cloud.connection_public_url AS cloudConnectionPublicUrl
+			 , cloud.connection_url AS cloudConnectionPrivateUrl
 		FROM
 			d2p.sandboxes AS sandbox
-				LEFT JOIN d2p.cloud_sandbox_instance AS cloud
+				LEFT JOIN d2p.cloud_sandbox_instances AS cloud
 						  ON sandbox.cloud_instance_uuid = cloud.instance_uuid
 		WHERE 1=1
 		  AND sandbox.idx = #{idx}
@@ -161,12 +164,11 @@
 			sandbox.created_at AS createdAt,
 			cloud.idx AS cloudIdx,
 			cloud.instance_id AS cloudInstanceId,
-			cloud.instance_type AS cloudInstanceType,
 			cloud.status AS cloudStatus,
 			model.sandbox_model_type as sandboxModelType
 		FROM
 			d2p.sandboxes AS sandbox
-				LEFT JOIN d2p.cloud_sandbox_instance AS cloud
+				LEFT JOIN d2p.cloud_sandbox_instances AS cloud
 						  ON d2p.sandbox.cloud_instance_uuid = cloud.instance_uuid
 				LEFT JOIN d2p.sandbox_models AS model
 						  ON sandbox.sandbox_model_idx = model.sandbox_model_idx
@@ -189,7 +191,7 @@
 			model.sandbox_model_type as sandboxModelType
 		FROM
 			d2p.sandboxes AS sandbox
-				LEFT JOIN d2p.cloud_sandbox_instance AS cloud
+				LEFT JOIN d2p.cloud_sandbox_instances AS cloud
 						  ON d2p.sandbox.cloud_instance_uuid = cloud.instance_uuid
 				LEFT JOIN d2p.sandbox_models AS model
 						  ON sandbox.sandbox_model_idx = model.sandbox_model_idx
@@ -234,10 +236,8 @@
 			 ,sd.updated_at as updatedAt
 			 ,sd.updated_user_idx as updatedUserIdx
 			 ,sd.auto_stop_yn as autoStopYN
-			 ,csi.instance_type as cloudInstanceType
 			 ,csi.instance_id as cloudInstanceId
-			 ,csi.connection_private_url as cloudConnectionPrivateUrl
-			 ,csi.connection_public_url as cloudConnectionPublicUrl
+			 ,csi.connection_url as cloudConnectionPublicUrl
 			 ,csi.status as cloudStatus
 			 ,csi.started_at as startedAt
 			 ,csi.stopped_at as stoppedAt
@@ -245,7 +245,7 @@
 			 ,csi.updated_at as cloudUpdatedAt
 			 ,model.sandbox_model_type as sandboxModelType
 		FROM d2p.sandboxes sd
-				 LEFT JOIN d2p.cloud_sandbox_instance csi ON sd.cloud_instance_uuid = csi.instance_uuid
+				 LEFT JOIN d2p.cloud_sandbox_instances csi ON sd.cloud_instance_uuid = csi.instance_uuid
 				 LEFT JOIN d2p.sandbox_models model ON sd.sandbox_model_idx = model.sandbox_model_idx
 		WHERE 1=1
 		  AND created_user_idx = #{userId}
@@ -255,7 +255,7 @@
 		SELECT COUNT(sandbox.idx)
 		FROM
 		d2p.sandboxes AS sandbox
-		LEFT JOIN d2p.cloud_sandbox_instance AS cloud
+		LEFT JOIN d2p.cloud_sandbox_instances AS cloud
 		ON sandbox.cloud_instance_uuid = cloud.instance_uuid
 		WHERE 1=1
 		AND sandbox.status = 'ACTIVE'
@@ -276,7 +276,7 @@
 		SELECT COUNT(sandbox.idx)
 		FROM
 		d2p.sandboxes AS sandbox
-		LEFT JOIN d2p.cloud_sandbox_instance AS cloud
+		LEFT JOIN d2p.cloud_sandbox_instances AS cloud
 		ON sandbox.cloud_instance_uuid = cloud.instance_uuid
 		WHERE 1=1
 		AND sandbox.status = 'ACTIVE'

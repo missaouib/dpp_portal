@@ -324,10 +324,10 @@
                           <th>샌드박스 이름</th>
                           <th>볼륨</th>
                           <th>상태</th>
+                          <th></th>
                           <th>승인여부</th>
                           <th>생성일</th>
                           <th>접속정보</th>
-                          <th>샌드박스 동작</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -335,6 +335,7 @@
                           <td th:text="${item.idx}"></td>
                           <td th:text="${item.name}"></td>
                           <td th:text="${item.volume}"></td>
+                          <td th:text="${item.status}"></td>
                           <td>
                             <span
                               th:if="${T(mzc.data.portal.enums.CloudSandboxInstanceStatus).STARTING == item.cloudStatus}"

@@ -17,6 +17,7 @@ public class CloudSandboxInstanceData {
     private String instanceUuid;
     private String instanceId;
     private String instanceType;
+    private String amiId;
     private String connectionPrivateUrl;
     private String connectionPublicUrl;
     private String Status;

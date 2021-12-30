@@ -47,7 +47,7 @@ CREATE TABLE `d2p`.`sandboxes` (
                                    `auto_stop_yn` VARCHAR(1) NOT NULL DEFAULT 0 COMMENT '자동중지 여부',
                                    PRIMARY KEY (`idx`) USING BTREE
 )
-    COMMENT='샌드박스'
+COMMENT='샌드박스'
 COLLATE='utf8mb4_general_ci'
 ENGINE=InnoDB
 ;
@@ -171,12 +171,12 @@ VALUES
      ,(7, 'EC2', 'WINDOWS', 'c4.large', 2, 3, 'Moderate', 0.206, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)
      ,(8, 'EC2', 'LINUX', 'c4.large', 2, 3, 'Moderate', 0.114, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)
      ,(9, 'EC2', 'LINUX', 'c4.xlarge', 4, 7, 'High', 0.227, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)
-     ,(10, 'EC2', 'WINDOWS', 'c4.xlarge', 4, 7, 'High', 0.411, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)
-     ,(11, 'EC2', 'WINDOWS', 'c5.12xlarge', 48, 96, '12 Gigabit', 4.512, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)
-     ,(12, 'EC2', 'LINUX', 'c5.12xlarge', 48, 96, '12 Gigabit', 2.304, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)
-     ,(13, 'EC2', 'WINDOWS', 'c5.18xlarge', 72, 144, '25 Gigabit', 6.768, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)
-     ,(14, 'EC2', 'LINUX', 'c5.18xlarge', 72, 144, '25 Gigabit', 3.456, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)
-     ,(15, 'EC2', 'LINUX', 'c5.24xlarge', 96, 192, '25 Gigabit', 4.608, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)
+     ,(10, 'SAGEMAKER', 'WINDOWS', 'c4.xlarge', 4, 7, 'High', 0.411, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)
+     ,(11, 'SAGEMAKER', 'WINDOWS', 'c5.12xlarge', 48, 96, '12 Gigabit', 4.512, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)
+     ,(12, 'SAGEMAKER', 'LINUX', 'c5.12xlarge', 48, 96, '12 Gigabit', 2.304, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)
+     ,(13, 'SAGEMAKER', 'WINDOWS', 'c5.18xlarge', 72, 144, '25 Gigabit', 6.768, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)
+     ,(14, 'SAGEMAKER', 'LINUX', 'c5.18xlarge', 72, 144, '25 Gigabit', 3.456, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)
+     ,(15, 'SAGEMAKER', 'LINUX', 'c5.24xlarge', 96, 192, '25 Gigabit', 4.608, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)
      ,(16, 'EC2', 'WINDOWS', 'c5.24xlarge', 96, 192, '25 Gigabit', 9.024, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)
      ,(17, 'EC2', 'WINDOWS', 'c5.2xlarge', 8, 16, 'Up to 10 Gigabit', 0.752, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)
      ,(18, 'EC2', 'LINUX', 'c5.2xlarge', 8, 16, 'Up to 10 Gigabit', 0.384, 'ACTIVE', '2020-05-26 13:46:00.000', NULL)

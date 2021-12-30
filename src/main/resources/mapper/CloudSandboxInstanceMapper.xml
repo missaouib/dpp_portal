@@ -15,18 +15,18 @@
              , terminated_at AS terminatedAt
              , updated_at AS updatedAt
         FROM
-            d2p.cloud_sandbox_instance
+            d2p.cloud_sandbox_instances
         WHERE 1=1
           AND idx = #{idx}
 
     </select>
     <insert id="add">
         INSERT INTO
-            d2p.cloud_sandbox_instance
+            d2p.cloud_sandbox_instances
         (
             instance_uuid,
             instance_id,
-            instance_type,
+            ami_id,
             status,
             created_at
         )
@@ -34,7 +34,7 @@
         (
             #{instanceUuid},
             #{instanceId},
-            #{sandboxType},
+            #{amiId},
             #{cloudSandboxInstanceStatus},
             NOW()
         )
@@ -42,7 +42,7 @@
 
     <update id="update">
         UPDATE
-        d2p.cloud_sandbox_instance
+        d2p.cloud_sandbox_instances
         SET
         updated_at = now()
         , status = #{cloudSandboxInstanceStatus}
